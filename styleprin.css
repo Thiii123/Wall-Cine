@@ -1,0 +1,155 @@
+
+
+
+body{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+
+
+}
+.logo{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 20px;
+    font-size: 25px;
+}
+.cine{
+    font-size: 20px;
+    position: relative;
+    top: -5px;
+    left: 15px;
+    font-weight: bold;
+}
+.cine {
+      font-size: 32px;
+      font-weight: bold;
+      animation: mudarCores 3s infinite;
+    }
+
+    @keyframes mudarCores {
+      0%   { color: red; }
+      25%  { color: orange; }
+      50%  { color: yellow; }
+      75%  { color: green; }
+      100% { color: red; }
+    }
+
+.menu1{
+    color: white;
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+    list-style: none;
+    position: relative;
+    left: 5px;
+    z-index: 1;
+    
+
+
+}
+ul{
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            cursor: pointer;
+        }
+    
+    
+}
+.imgprincipal{
+    position: absolute;
+    top: 1px;
+    
+
+}
+.imagem{
+position: relative;
+    width: 400px;
+    top: 1px;
+    z-index: 0;
+    display: none;
+    
+}
+.sombra{
+    background-color: aqua;
+    position: relative;
+    
+}
+.icone{
+    position: absolute;
+    z-index: 2;
+    width: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h2 {
+    margin: 20px;
+}
+
+.carrossel {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    /* Scroll horizontal */
+    padding: 20px;
+    scroll-behavior: smooth;
+    /* Scroll suave */
+    position: absolute;
+    z-index: 3;
+    top: 600px;
+
+}
+
+.carrossel::-webkit-scrollbar {
+    height: 8px;
+    /* Altura da barra no PC */
+}
+
+.carrossel::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.item {
+    flex: 0 0 auto;
+    /* Não deixa os itens diminuírem */
+    width: 175px;
+    height: 240px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.item img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
