@@ -119,10 +119,7 @@ position: relative;
       height: 8px;
     }
 
-    .pai::-webkit-scrollbar-thumb {
-      background: #555;
-      border-radius: 10px;
-    }
+   
 
     .filho {
       flex: 0 0 auto;             /* impede que os itens encolham */
@@ -136,3 +133,4 @@ position: relative;
       font-size: 18px;
     }
 
+ 
