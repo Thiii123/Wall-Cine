@@ -6,6 +6,7 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
+    width: 100vw;
 
 
 
@@ -37,41 +38,43 @@ body{
       100% { color: red; }
     }
 
-.menu1{
-    color: white;
-    display: flex;
-    gap: 15px;
-    margin-top: 40px;
-    list-style: none;
-    position: relative;
-    left: -10px;
-    z-index: 1;
-    
 
 
-}
-ul{
-        a{
-            
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            cursor: pointer;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-        }
-    
-    
-}
-ul a::-webkit-scrollbar{
-    height: 8px;
-}
-ul a::-webkit-scrollbar-thumb{
-    background: #555;
-    border-radius: 10px;
-}
+
+
+ul {
+      display: flex;              /* deixa os itens em linha */
+      gap: 15px;                  /* espaço entre os itens */
+      list-style: none;           /* remove bolinhas da lista */
+      padding: 10px;
+      margin: 0;
+      overflow-x: auto;           /* permite scroll na horizontal */
+      scroll-behavior: smooth;    /* rolagem suave */
+    }
+
+    ul::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    ul::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 10px;
+    }
+
+    li {
+      flex: 0 0 auto;             /* impede que os itens encolham */
+      width: 150px;
+      height: 200px;
+      background: #333;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+
+
 
 
 
@@ -104,38 +107,12 @@ position: relative;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 h2 {
     margin: 20px;
 }
 
 .carrossel {
-    display: flex;
+    display: none;
     gap: 10px;
     overflow-x: auto;
     /* Scroll horizontal */
