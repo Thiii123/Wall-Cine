@@ -56,11 +56,6 @@ ul {
       height: 8px;
     }
 
-    ul::-webkit-scrollbar-thumb {
-      background: #555;
-      border-radius: 10px;
-    }
-
     li {
       flex: 0 0 auto;        
       color: white;    /* impede que os itens encolham */
@@ -136,4 +131,7 @@ position: relative;
   height: 200px;
   width: 150px;
   border-radius: 20px;
+   0 0 20px rgba(255,255,255,0.2),
+    0 0 40px rgba(255,255,255,0.15),
+    0 0 60px rgba(255,255,255,0.1);
  }
