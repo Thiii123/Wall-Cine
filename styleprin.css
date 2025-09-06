@@ -44,7 +44,7 @@ body{
     margin-top: 40px;
     list-style: none;
     position: relative;
-    left: 5px;
+    left: -10px;
     z-index: 1;
     
 
@@ -52,16 +52,29 @@ body{
 }
 ul{
         a{
+            
             text-decoration: none;
             color: white;
             font-size: 18px;
             font-weight: bold;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             cursor: pointer;
+            overflow-x: auto;
+            scroll-behavior: smooth;
         }
     
     
 }
+ul a::-webkit-scrollbar{
+    height: 8px;
+}
+ul a::-webkit-scrollbar-thumb{
+    background: #555;
+    border-radius: 10px;
+}
+
+
+
 .imgprincipal{
     position: absolute;
     top: 1px;
@@ -83,9 +96,17 @@ position: relative;
 }
 .icone{
     position: absolute;
+    top: 20px;
+    right: 30px;
     z-index: 2;
-    width: 10px;
+    font-size: 30px;
+      
 }
+
+
+
+
+
 
 
 
