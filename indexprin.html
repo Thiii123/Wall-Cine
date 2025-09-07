@@ -32,7 +32,35 @@
     
   </div>
 
+
+
+
+<div class="slider">
+    <div class="slide active">
+      <img src="/assets/capitao.jpg" alt="">
+    </div>
+    <div class="slide">
+      <img src="/assets/como.dragao.jpg" alt="">
+    
+    </div>
+    <div class="slide">
+      <img src="/assets/twd.jpg" alt="Filme 3">
+    </div>
+    <div class="slide">
+      <img src="/assets/casa.jpeg" alt="Filme 4">
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <h1 class="titulo1">Destaques da Semana</h1>
 <div class="pai">
+  
 
   <div class="filho"><img class="imgcell" src="/assets/thewalll.png" alt=""></div>
   <div class="filho"><img class="imgcell" src="/assets/dragao.jpg" alt=""></div>
@@ -49,7 +77,20 @@
 
 
 
+<script>
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
 
+    function showSlide() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+      });
+      index = (index + 1) % slides.length; // vai para o próximo
+    }
+
+    setInterval(showSlide, 3000); // troca a cada 3 segundos
+  </script>
 </body> 
 
 </html>
