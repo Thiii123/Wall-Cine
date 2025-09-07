@@ -1,137 +1,144 @@
-
-
-
-body{
-    background-color: black;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    width: 100vw;
-
-
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 200vh;
 
 }
-.logo{
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-left: 20px;
-    font-size: 25px;
+.logo {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 30px;
+  font-size: 25px;
 }
-.cine{
-    font-size: 20px;
-    position: relative;
-    top: -5px;
-    left: 15px;
-    font-weight: bold;
+.wall{
+  font-size: 30px;
 }
 .cine {
-      font-size: 32px;
-      font-weight: bold;
-      animation: mudarCores 3s infinite;
-    }
+  font-size: 20px;
+  position: relative;
+  top: -25px;
+  left: 30px;
+  font-weight: bold;
+}
+.cine {
+  font-size: 22px;
+  font-weight: bold;
+  animation: mudarCores 3s infinite;
+}
 
-    @keyframes mudarCores {
-      0%   { color: red; }
-      25%  { color: orange; }
-      50%  { color: yellow; }
-      75%  { color: green; }
-      100% { color: red; }
-    }
+@keyframes mudarCores {
+  0% {
+    color: red;
+  }
 
+  25% {
+    color: orange;
+  }
 
+  50% {
+    color: yellow;
+  }
 
+  75% {
+    color: green;
+  }
 
+  100% {
+    color: red;
+  }
+}
 
 ul {
-      display: flex;              /* deixa os itens em linha */
-      gap: 15px;                  /* espaço entre os itens */
-      list-style: none;           /* remove bolinhas da lista */
-      padding: 10px;
-      margin: 0;
-      overflow-x: auto;           /* permite scroll na horizontal */
-      scroll-behavior: smooth;    /* rolagem suave */
-    }
-
-    ul::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    li {
-      flex: 0 0 auto;        
-      color: white;    /* impede que os itens encolham */
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      font-weight: bolder;
-      font-family: Arial, Helvetica, sans-serif;
-      margin-left: 10px;
-    }
-
-
-
-
-
-
-.imgprincipal{
-    position: absolute;
-    top: 1px;
-    
-
+  display: flex;
+  /* deixa os itens em linha */
+  gap: 15px;
+  /* espaço entre os itens */
+  list-style: none;
+  /* remove bolinhas da lista */
+  padding: 10px;
+  margin: 0;
+  overflow-x: auto;
+  /* permite scroll na horizontal */
+  scroll-behavior: smooth;
+  /* rolagem suave */
 }
-.imagem{
-position: relative;
-    width: 400px;
-    top: 1px;
-    z-index: 0;
-    display: none;
-    
+
+ul::-webkit-scrollbar {
+  height: 8px;
 }
-.sombra{
-    background-color: aqua;
-    position: relative;
-    
+
+li {
+  flex: 0 0 auto;
+  color: white;
+  /* impede que os itens encolham */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 10px;
 }
-.icone{
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    z-index: 2;
-    font-size: 30px;
-      
+.imgprincipal {
+  position: absolute;
+  top: 1px;
+}
+.imagem {
+  position: relative;
+  width: 400px;
+  top: 1px;
+  z-index: 0;
+  display: none;
+}
+.icone {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 2;
+  font-size: 30px;
+
 }
 .pai {
-      display: flex;              /* deixa os itens em linha */
-      gap: 15px;                  /* espaço entre os itens */
-      padding: 10px;
-      margin: 0;
-      overflow-x: auto;           /* permite scroll na horizontal */
-      scroll-behavior: smooth;    /* rolagem suave */
-    }
-
-    .pai::-webkit-scrollbar {
-      height: 8px;
-    }
-
-   
-
-    .filho {
-      flex: 0 0 auto;             /* impede que os itens encolham */
-      width: 150px;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      
-    }
-
- .imgcell{
+  display: flex;
+  /* deixa os itens em linha */
+  gap: 15px;
+  /* espaço entre os itens */
+  padding: 10px;
+  margin: 0;
+  overflow-x: auto;
+  /* permite scroll na horizontal */
+  scroll-behavior: smooth;
+  /* rolagem suave */
+}
+.pai::-webkit-scrollbar {
+  height: 8px;
+}
+.filho {
+  flex: 0 0 auto;
+  /* impede que os itens encolham */
+  width: 150px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.imgcell {
   height: 200px;
   width: 150px;
   border-radius: 20px;
-   0 0 20px rgba(255,255,255,0.2),
-    0 0 40px rgba(255,255,255,0.15),
-    0 0 60px rgba(255,255,255,0.1);
- }
+  box-shadow:
+    0 0 20px rgba(24, 1, 1, 0.2),
+    0 0 40px rgba(10, 1, 1, 0.15),
+    0 0 60px rgba(24, 1, 1, 0.1);
+}
+.sombra {
+  display: flex;
+  background-color: aqua;
+  z-index: 3;
+  position: relative;
+}
