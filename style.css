@@ -83,7 +83,8 @@ body{
         margin-right: 60px;
         top: 30px;
         position: relative;
-        left:60px;
+        left:30px;
+        font-size: 26px;
 
 
         color: #fff;
@@ -97,12 +98,15 @@ body{
 
     .link2 {
         text-decoration: none;
-        font-weight: bold;
+        font-weight: bolder;
         display: flex;
         z-index: 2;
         top: 30px;
         position: relative;
-        left: 60px;
+        left: 10px;
+        font-size: 20px;
+        
+
 
         color: #111;
         background-color: #fff;
@@ -154,7 +158,38 @@ body{
 
 
 }
+.text2 {
+  font-size: 30px;
+  position: relative;
+  
+  font-weight: bold;
+}
+.text2 {
+  font-weight: bold;
+  animation: mudarCores 3s infinite;
+}
 
+@keyframes mudarCores {
+  0% {
+    color: red;
+  }
+
+  25% {
+    color: orange;
+  }
+
+  50% {
+    color: yellow;
+  }
+
+  75% {
+    color: green;
+  }
+
+  100% {
+    color: red;
+  }
+}
 
 
 }
