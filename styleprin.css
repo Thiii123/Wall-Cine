@@ -5,6 +5,7 @@ body {
   overflow: hidden;
   width: 100vw;
   height: 300vh;
+  overflow-y: auto;
 
 }
 .logo {
