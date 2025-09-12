@@ -72,6 +72,7 @@ ul {
   /* permite scroll na horizontal */
   scroll-behavior: smooth;
   /* rolagem suave */
+  width: 450px;
 }
 
 ul::-webkit-scrollbar {
@@ -122,10 +123,11 @@ li {
 
 
 .slider {
+  
   position: relative;
   margin: 0;
       width: 460px;
-      height: 395px;
+      height: 565px;
       overflow: hidden;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
@@ -134,7 +136,7 @@ li {
     .slide {
       position: absolute;
       width: 400px;
-      height: 440px;
+      height: 510px;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
@@ -146,8 +148,8 @@ li {
     .slide img {
       position: relative;
       left: 30px;
-      width: 310px;
-      height: 100%;
+      width: 410px;
+      height: 540px;
       object-fit: cover;
       border-radius: 15px;
     }
@@ -174,6 +176,8 @@ li {
   /* permite scroll na horizontal */
   scroll-behavior: smooth;
   /* rolagem suave */
+  width: 440px;
+  
 }
 .pai::-webkit-scrollbar {
   height: 8px;
@@ -263,7 +267,7 @@ li {
 .slider {
   position: relative;
   margin: 0;
-      width: 320px;
+      width: 360px;
       height: 395px;
       margin-top: -40px;
       overflow: hidden;
