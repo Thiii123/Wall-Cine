@@ -4,9 +4,9 @@ body {
   padding: 0;
   overflow: hidden;
   width: 100%;
-  min-height: 200vh;
+  min-height: 300vh;
   overflow-y: auto;
-  zoom: 95%;
+  zoom: 85%;
 
 
 }
