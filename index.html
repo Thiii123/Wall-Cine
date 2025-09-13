@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <title>᭙all 𝒞ine</title>
     <link rel="icon" type="img/png" href="/assets/favicon.png">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e50914">
+
 </head>
 
 
@@ -45,6 +48,13 @@ Com uma interface simples e rápida, você encontra os melhores títulos para ma
 
 
 
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker registrado"))
+      .catch(err => console.error("Erro ao registrar Service Worker:", err));
+  }
+</script>
 
 </body>
 
