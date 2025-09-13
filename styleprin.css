@@ -141,23 +141,7 @@ li {
       transition: opacity 1s ease-in-out;
       
     }
-    .menubt{
-      text-decoration: none;
-      transition: all 0.3s ease;
-      color: white;
-
-
-    }
-.menubt:hover{
-  color: #746868;
-  transform: scale(1.03);
-   
-
-}
-.menubt:active{
-  transform: scale(0,97);
   
-}
 
 
 
