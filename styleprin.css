@@ -125,7 +125,7 @@ li {
   color: white;
   position: relative;
   left: 35px;
-  top: 5px;
+  top: -40px;
 }
 
 
@@ -179,7 +179,7 @@ li {
 
 .pai {
   position: relative;
-  top: 10px;
+  top: -50px;
   display: flex;
   /* deixa os itens em linha */
   gap: 15px;
@@ -230,6 +230,7 @@ li {
 */
 
 
+/* configuraçoes para telas especificas */
 
 @media (min-width: 320px) and (max-width: 359px) {
   
@@ -269,20 +270,26 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 28px;
   font-weight: bolder;
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 10px;
 }
-
+.titulo1{
+  color: white;
+  position: relative;
+  left: 35px;
+  top: -60px;
+}
 
 
 
 .slider {
   position: relative;
   margin: 0;
-      width: 360px;
-      height: 395px;
+      width: 460px;
+      height: 595px;
+      left: 40px;
       margin-top: -40px;
       overflow: hidden;
       border-radius: 15px;
@@ -291,8 +298,8 @@ li {
 
     .slide {
       position: absolute;
-      width: 300px;
-      height: 440px;
+      width: 400px;
+      height: 580px;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
@@ -303,8 +310,8 @@ li {
 
     .slide img {
       position: relative;
-      left: 5px;
-      width: 310px;
+      left: 0px;
+      width: 410px;
       height: 90%;
       object-fit: cover;
       border-radius: 25px;
