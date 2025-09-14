@@ -125,7 +125,7 @@ li {
   color: white;
   position: relative;
   left: 35px;
-  top: -40px;
+  top: -20px;
 }
 
 
@@ -135,6 +135,7 @@ li {
 .slider {
   
   position: relative;
+
   margin: 0;
       width: 460px;
       height: 565px;
@@ -179,7 +180,8 @@ li {
 
 .pai {
   position: relative;
-  top: -50px;
+  left: 20px;
+  top: -10px;
   display: flex;
   /* deixa os itens em linha */
   gap: 15px;
@@ -197,6 +199,7 @@ li {
   height: 8px;
 }
 .filho {
+  
   flex: 0 0 auto;
   /* impede que os itens encolham */
   width: 140px;
