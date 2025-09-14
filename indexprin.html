@@ -16,14 +16,14 @@
 
   <ul>
     <li><a class="menubt" href=""> Inicio</a></li>
-    <li>Séries</li>
-    <li>Filmes</li>
-    <li>Animes</li>
-    <li>Doramas</li>
+    <li><a class="menubt" href=""> Séries</a></li>
+    <li><a  class="menubt"href=""> Filmes</a></li>
+    <li><a  class="menubt"href=""> Animes</a></li>
+    <li><a class="menubt" href=""> Doramas</a></li>
 
   </ul>
-  <div class="icone">🤵‍♂️</div>
-
+  <div class="icone">👤</div>
+<div><a class="lupa" href="">🔍</a></div>
   <div class="imgprincipal">
     <img class="imagem" src="/assets/dragao.jpg" alt="">
  
@@ -90,6 +90,20 @@
     }
 
     setInterval(showSlide, 3000); // troca a cada 3 segundos
+  
+  let lupa = document.querySelector(".lupa")
+
+
+  lupa.addEventListener("click" ,mostrarModal)
+  function mostrarModal(){
+    alert("fui chamado")
+  }
+  
+  
+  
+  
+  
+  
   </script>
 </body> 
 
