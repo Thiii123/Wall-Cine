@@ -1,88 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pesquisa de Filmes</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
+  <link rel="stylesheet" href="style2.css">
+  <title>᭙all 𝒞ine</title>
 
-    /* Caixa da pesquisa */
-    .search-box {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .search-box input {
-      width: 250px;
-      padding: 10px;
-      border: none;
-      border-radius: 8px 0 0 8px;
-      outline: none;
-      font-size: 16px;
-    }
-
-    .search-box button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 0 8px 8px 0;
-      background: #00d1ff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Grid de filmes */
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .item {
-      width: 150px;
-      text-align: center;
-    }
-
-    .item img {
-      width: 100%;
-      border-radius: 10px;
-    }
-  </style>
 </head>
+
 <body>
-  <h1>Meus Filmes</h1>
+<!--  Menu-->
 
-  <!-- Barra de pesquisa -->
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Pesquisar filme...">
-    <button onclick="filtrar()">Buscar</button>
+<h1 class="logo"><a  href="/indexprin.html"><span class="wall">᭙all</span><br> <span class="cine">𝒞ine</span></a></h1>
+
+
+  <ul>
+    <li><a class="menubt" href="/indexprin.html"> Inicio</a></li>
+    <li><a class="menubt" href=""> Séries</a></li>
+    <li><a  class="menubt"href=""> Filmes</a></li>
+    <li><a  class="menubt"href=""> Animes</a></li>
+    <li><a class="menubt" href=""> Doramas</a></li>
+
+  </ul>
+  <div class="icone">👤</div>
   </div>
 
-  <!-- Lista de filmes -->
-  <div class="grid" id="listaFilmes">
-    <div class="item"><a href=""><img src="assets/venom.jpg"></a><p>Venom</p></div>
-    <div class="item"><img src="assets/twd.jpg"><p>The Walking Dead</p></div>
-    <div class="item"><img src="assets/vincenzo.jpg"><p>Vincenzo</p></div>
-    <div class="item"><img src="assets/therockie.jpg"><p>The Rookie</p></div>
-  </div>
 
+
+
+  <h1>Pesquisar Filmes</h1>
+  <input type="text" id="search" placeholder="Digite nome, gênero ou tag...">
+  <div id="resultados"></div>
+
+  <!-- Fuse.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
   <script>
-    function filtrar() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const filmes = document.querySelectorAll("#listaFilmes .item");
 
-      filmes.forEach(filme => {
-        const nome = filme.innerText.toLowerCase();
-        filme.style.display = nome.includes(input) ? "block" : "none";
-      });
+    // Lista de filmes com tags extras
+    const filmes = [
+      {
+        title: "premoniçao",
+        tags: ["ação", "aventura", "marvel", "herois", "super-herói", "guerra infinita"],
+        img: "assets/premon.jpg"
+      },
+      {
+        title: "Velozes e Furiosos",
+        tags: ["ação", "carros", "corrida", "família", "aventura", "velocidade"],
+        img: "assets/veloces.png"
+      },
+      {
+        title: "Titanic",
+        tags: ["romance", "drama", "navio", "amor", "tragedia", "mar"],
+        img: "assets/solo.jpg"
+      },
+      {
+        title: "venom",
+        tags: ["magia", "aventura", "fantasia", "hogwarts", "bruxo", "varinha"],
+        img: "assets/harrypotter.png"
+      },
+      {
+        title: "Harry Potter",
+        tags: ["magia", "aventura", "fantasia", "hogwarts", "bruxo", "varinha"],
+        img: "assets/harrypotter.png"
+      },
+      {
+        title: "Homem-Aranha",
+        tags: ["ação", "marvel", "heroi", "aranha", "teia", "super-herói"],
+        img: "assets/homemaranha.png"
+      }
+    ];
+
+    // Fuse.js para busca inteligente
+    const fuse = new Fuse(filmes, {
+      keys: ["title", "tags"], // pesquisa título e tags
+      threshold: 0.4           // tolerância a erros
+    });
+
+    function buscarFilmes() {
+      const query = document.getElementById("search").value;
+      if (!query) {
+        document.getElementById("resultados").innerHTML = "";
+        return;
+      }
+
+      const resultados = fuse.search(query);
+
+      document.getElementById("resultados").innerHTML = resultados.length
+        ? resultados.map(r => `
+            <div class="card">
+              <img src="${r.item.img}" alt="${r.item.title}">
+              <h3>${r.item.title}</h3>
+            </div>
+          `).join("")
+        : `<div>Nenhum resultado encontrado</div>`;
     }
+
+    document.getElementById("search").addEventListener("input", buscarFilmes);
   </script>
 </body>
+
 </html>

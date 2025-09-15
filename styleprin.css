@@ -7,7 +7,12 @@ body {
   min-height: 300vh;
   overflow-y: auto;
   zoom: 85%;
+  
 
+
+}
+a{
+  text-decoration: none;
 
 }
 
@@ -19,15 +24,11 @@ body {
 
 }
 
-.linklogo {
-  text-decoration: none;
-}
-
 .wall {
   font-size: 30px;
+  color: white;
 
 }
-
 .cine {
   font-size: 20px;
   position: relative;
