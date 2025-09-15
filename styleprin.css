@@ -201,7 +201,7 @@ li {
 }
 
 .item {
-  flex: 0 0 33.3333%;   /* ocupa metade da tela → 3 por vez */
+  flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
   scroll-snap-align: start;
   height: 400px;
 }
