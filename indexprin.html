@@ -57,17 +57,13 @@
 
 
 
-
-  <h1 class="titulo1">Destaques</h1>
-<div class="pai">
-  
-
-  <div class="filho"><img class="imgcell" src="/assets/caçadores (1).jpg" alt=""></div>
-  <div class="filho"><img class="imgcell" src="/assets/therockie.jpg" alt=""></div>
-  <div class="filho"><img class="imgcell" src="/assets/vincenzo.jpg" alt=""></div>
-  <div class="filho"><img class="imgcell" src="/assets/premon.jpg" alt=""></div>
-  <div class="filho"><img class="imgcell" src="/assets/venom.jpg" alt=""></div>
-
+<h1 class="titulo1">Destaques</h1>
+<div class="carrossel">
+  <div class="item"><img src="/assets/capitao.jpg" alt="Capitão"></div>
+  <div class="item"><img src="/assets/como.dragao.jpg" alt="Como Treinar Seu Dragão"></div>
+  <div class="item"><img src="/assets/twd.jpg" alt="The Walking Dead"></div>
+  <div class="item"><img src="/assets/casa.jpeg" alt="La Casa de Papel"></div>
+  <div class="item"><img src="/assets/venom.jpg" alt="Venom"></div>
 </div>
 
 
@@ -78,6 +74,24 @@
 
 
 <script>
+  const carrossel = document.getElementById("carrossel");
+
+  function autoScroll() {
+    const larguraVisivel = carrossel.clientWidth;
+    const maxScroll = carrossel.scrollWidth - larguraVisivel;
+
+    if (carrossel.scrollLeft >= maxScroll) {
+      carrossel.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      carrossel.scrollBy({ left: larguraVisivel, behavior: "smooth" });
+    }
+  }
+
+  setInterval(autoScroll, 3000); // troca a cada 3s
+
+
+
+
     const slides = document.querySelectorAll(".slide");
     let index = 0;
 
@@ -89,7 +103,7 @@
       index = (index + 1) % slides.length; // vai para o próximo
     }
 
-    setInterval(showSlide, 3000); // troca a cada 3 segundos
+    setInterval(showSlide, 2000); // troca a cada 3 segundos
   //
   //let lupa = document.querySelector(".lupa")
 
@@ -99,12 +113,17 @@
    // alert("fui chamado")
   //}
   
+
+
+
+
+
   
   
   
   
   
-  </script>
+ </script>
 </body> 
 
 </html>
