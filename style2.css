@@ -64,7 +64,7 @@ ul {
   top: -20px;
   display: flex;
   /* deixa os itens em linha */
-  gap: 15px;
+  gap: 25px;
   /* espaço entre os itens */
   list-style: none;
   /* remove bolinhas da lista */
@@ -74,7 +74,7 @@ ul {
   /* permite scroll na horizontal */
   scroll-behavior: smooth;
   /* rolagem suave */
-  width: 450px;
+  width: 500px;
 }
 
 ul::-webkit-scrollbar {
@@ -139,11 +139,11 @@ li {
     }
 
     .card {
-      background: #222;
+    
       padding: 10px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      width: 180px;
+      width: 190px;
       text-align: center;
       transition: transform 0.2s;
     }
@@ -153,8 +153,9 @@ li {
     }
 
     .card img {
-      width: 100px;
-      border-radius: 8px;
+      width: 200px;
+      height: 300px;
+      border-radius: 30px;
     }
 
     .card h3 {
