@@ -10,7 +10,7 @@
 
 <body>
 
-
+<div class="reveal">
 <h1 class="logo"><a  href="/indexprin.html"><span class="wall">᭙all</span><br> <span class="cine">𝒞ine</span></a></h1>
 
 
@@ -22,6 +22,7 @@
     <li><a class="menubt" href=""> Doramas</a></li>
 
   </ul>
+
   <div class="icone">👤</div>
 <div><a class="lupa" href="/index2.html">🔍</a></div>
   <div class="imgprincipal">
@@ -31,9 +32,9 @@
    <div class="sombra">
     
   </div>
+</div>
 
-
-
+<div class="reveal">
 
 <div class="slider">
     <div class="slide active">
@@ -50,14 +51,14 @@
       <img src="/assets/casa.jpeg" alt="Filme 4">
     </div>
   </div>
-
-
-
+</div>
 
 
 
 
 <h1 class="titulo1">Destaques</h1>
+<div class="reveal">
+
 <div class="carrossel">
   <div class="item"><img src="/assets/capitao.jpg" alt="Capitão"></div>
   <div class="item"><img src="/assets/como.dragao.jpg" alt="Como Treinar Seu Dragão"></div>
@@ -65,10 +66,20 @@
   <div class="item"><img src="/assets/casa.jpeg" alt="La Casa de Papel"></div>
   <div class="item"><img src="/assets/venom.jpg" alt="Venom"></div>
 </div>
+</div>
 
 
+<h1 class="titulo2">Recomendados para você</h1>
+<div class="reveal">
 
-
+<div class="carrossel2">
+  <div class="item"><img src="/assets/capitao.jpg" alt="Capitão"></div>
+  <div class="item"><img src="/assets/como.dragao.jpg" alt="Como Treinar Seu Dragão"></div>
+  <div class="item"><img src="/assets/twd.jpg" alt="The Walking Dead"></div>
+  <div class="item"><img src="/assets/casa.jpeg" alt="La Casa de Papel"></div>
+  <div class="item"><img src="/assets/venom.jpg" alt="Venom"></div>
+</div>
+</div>
 
 
 
@@ -113,6 +124,24 @@
    // alert("fui chamado")
   //}
   
+
+
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active"); // remove quando sair da tela
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+
 
 
 

@@ -29,7 +29,8 @@
 
 
 
-  <h1>Pesquisar Filmes</h1>
+
+  <h1>Pesquisar no Nosso Acervo</h1>
   <input type="text" id="search" placeholder="Digite nome, gênero ou tag...">
   <div id="resultados"></div>
 
@@ -37,61 +38,91 @@
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
   <script>
 
+
+
+
+
     // Lista de filmes com tags extras
     const filmes = [
       {
         title: "",
         tags: ["ação", "aventura", "Suspense", "carros", "super-herói", "Filmes", "velozes e furiosos", "familia", "filmes de açao"],
-        img: "assets/velozes.jpg"
+        img: "assets/velozes.jpg" ,
+        link: ""
       },
       {
         title: "",
         tags: ["ação", "herois", "marvel", "", "aventura", "vingadores", "capitao america", "Filmes", "filmes de açao"],
-        img: "assets/capitao.jpg"
+        img: "assets/capitao.jpg" ,
+        link: ""
       },
       {
         title: "",
         tags: ["suspense", "fantasia", "demonios", "açao", "animaçao", "animes", "aventura", "Solo leveling"],
-        img: "assets/solo.jpg"
+        img: "assets/solo.jpg" ,
+        link: ""
       },
       {
         title: "",
         tags: ["magia", "aventura", "fantasia", "hogwarts", "bruxo", "varinha", "Harry Potter ", "filmes"],
-        img: "assets/harry.jpg"
+        img: "assets/harry.jpg" ,
+        link: ""
       },
       {
         title: "",
         tags: ["açao", "aventura", "policial", "serie", "Suspense", "americana", "amor", "familia", "the rockie"],
-        img: "assets/therockie.jpg" ,
-        link:"index3.html"
+        img: "assets/therockie.jpg",
+        link: ""
       },
       {
         title: "",
         tags: ["ação", "marvel", "heroi", "aranha", "teia", "super-herói", "Homem aranha", "filmes", "filmes de açao"],
-        img: "assets/homemaranha.jpg" ,
-        link: "index3.html"
+        img: "assets/homemaranha.jpg",
+        link: ""
+      },
+      {
+        title: "",
+        tags: ["suspense", "fantasia", "demonios", "açao", "animaçao", "animes", "aventura", "Solo leveling"],
+        img: "assets/vincenzo.jpg" ,
+        link: ""
+      },
+      {
+        title: "",
+        tags: ["amc", "aventura", "ficçao", "terror", "açao", "Suspense", "the walking dead the ones who live ", "Serie"],
+        img: "assets/twd.jpg" ,
+        link: ""
+
+      },
+      {
+        title: "",
+        tags: ["açao", "aventura", "ficçao cientifica", "filmes", "a", "fantasia", "amor", "familia", "como treinar o seu dragao"],
+        img: "assets/dragao.jpg" ,
+        link: ""
+      },
+      {
+        title: "",
+        tags: ["ação", "coreanos", "", "antagonista", "Suspense", "vincenzo", "doramas", "Series", "açao"],
+        img: "assets/vincenzo.jpg",
+        link: ""
       }
-     // {
-      //  title: "",
-      //  tags: ["suspense", "fantasia", "demonios", "açao", "animaçao", "animes", "aventura", "Solo leveling"],
-      //  img: "assets/vincenzo.jpg"
-     // },
-     // {
-     //   title: "",
-     //   tags: ["amc", "aventura", "ficçao", "terror", "açao", "Suspense", "the walking dead the ones who live ", "Serie"],
-      //  img: "assets/twd.jpg"
-     // },
-      //{
-       // title: "",
-       // tags: ["açao", "aventura", "ficçao cientifica", "filmes", "a", "fantasia", "amor", "familia", "como treinar o seu dragao"],
-      //  img: "assets/dragao.jpg"
-     // },
-     // {
-     //   title: "",
-     //   tags: ["ação", "alienigenas", "guerra", "robo", "ficçao", "", "transformes", "filmes", "filmes de açao"],
-      //  img: "assets/transform.jpg"
-    //  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ];
+
+
+
 
     // Fuse.js para busca inteligente
     const fuse = new Fuse(filmes, {
@@ -108,17 +139,26 @@
 
       const resultados = fuse.search(query);
 
-    document.getElementById("resultados").innerHTML = resultados.length
-      ? resultados.map(r => `
+      document.getElementById("resultados").innerHTML = resultados.length
+        ? resultados.map(r => `
           <a href="${r.item.link}" class="card">
             <img src="${r.item.img}" alt="${r.item.title}">
             <h3>${r.item.title}</h3>
           </a>
         `).join("")
-      : `<div>Nenhum resultado encontrado</div>`;
-  }
+        : `<div>Nenhum resultado encontrado</div>`;
+    }
 
     document.getElementById("search").addEventListener("input", buscarFilmes);
+
+
+
+
+
+
+
+
+
   </script>
 </body>
 

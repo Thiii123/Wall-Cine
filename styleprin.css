@@ -143,13 +143,7 @@ li {
   text-decoration: none;
 }
 
-.titulo1 {
-  /*titulo carrossel "Destaques"*/
-  color: white;
-  position: relative;
-  left: 35px;
-  top: -20px;
-}
+
 
 .slider {
 
@@ -157,9 +151,9 @@ li {
 
   margin: 0;
   width: 100%;
-  height: 565px;
+  height: 655px;
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: 45px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -199,6 +193,35 @@ li {
 .carrossel::-webkit-scrollbar {
   height: 8px;
 }
+.titulo1 {
+  /*titulo carrossel "Destaques"*/
+  color: white;
+  position: relative;
+  left: 25px;
+  top: 5px;
+  font-size: 30px;
+}
+.carrossel2 {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  border-radius: 15px;
+  scroll-snap-type: x mandatory; /* deixa travado no slide */
+}
+
+.carrossel::-webkit-scrollbar {
+  height: 8px;
+}
+.titulo2 {
+  /*titulo carrossel "Destaques"*/
+  color: white;
+  position: relative;
+  left: 25px;
+  top: -5px;
+  font-size: 30px;
+}
 
 .item {
   flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
@@ -232,6 +255,24 @@ li {
   z-index: 3;
   position: relative;
 }
+
+
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
 
 
 
