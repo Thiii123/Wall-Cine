@@ -62,12 +62,14 @@
       {
         title: "",
         tags: ["açao", "aventura", "policial", "serie", "Suspense", "americana", "amor", "familia", "the rockie"],
-        img: "assets/therockie.jpg"
+        img: "assets/therockie.jpg" ,
+        link:"index3.html"
       },
       {
         title: "",
         tags: ["ação", "marvel", "heroi", "aranha", "teia", "super-herói", "Homem aranha", "filmes", "filmes de açao"],
-        img: "assets/homemaranha.jpg"
+        img: "assets/homemaranha.jpg" ,
+        link: "index3.html"
       }
      // {
       //  title: "",
@@ -106,15 +108,15 @@
 
       const resultados = fuse.search(query);
 
-      document.getElementById("resultados").innerHTML = resultados.length
-        ? resultados.map(r => `
-            <div class="card">
-              <img src="${r.item.img}" alt="${r.item.title}">
-              <h3>${r.item.title}</h3>
-            </div>
-          `).join("")
-        : `<div>Nenhum resultado encontrado</div>`;
-    }
+    document.getElementById("resultados").innerHTML = resultados.length
+      ? resultados.map(r => `
+          <a href="${r.item.link}" class="card">
+            <img src="${r.item.img}" alt="${r.item.title}">
+            <h3>${r.item.title}</h3>
+          </a>
+        `).join("")
+      : `<div>Nenhum resultado encontrado</div>`;
+  }
 
     document.getElementById("search").addEventListener("input", buscarFilmes);
   </script>
