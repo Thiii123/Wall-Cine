@@ -188,6 +188,7 @@ li {
   padding: 10px;
   border-radius: 15px;
   scroll-snap-type: x mandatory; /* deixa travado no slide */
+  margin-left: 20px;
 }
 
 .carrossel::-webkit-scrollbar {
@@ -201,27 +202,6 @@ li {
   top: 5px;
   font-size: 30px;
 }
-.carrossel2 {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
-  border-radius: 15px;
-  scroll-snap-type: x mandatory; /* deixa travado no slide */
-}
-
-.carrossel::-webkit-scrollbar {
-  height: 8px;
-}
-.titulo2 {
-  /*titulo carrossel "Destaques"*/
-  color: white;
-  position: relative;
-  left: 25px;
-  top: -5px;
-  font-size: 30px;
-}
 
 .item {
   flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
@@ -231,11 +211,116 @@ li {
 
 .item img {
   width: 100%;
-  height: 100%;
+  height: 80%;
   object-fit: cover;
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
+
+
+
+.carrossel2 {
+  position: relative;
+  top: -80px;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  border-radius: 15px;
+  scroll-snap-type: x mandatory; /* deixa travado no slide */
+}
+
+.carrossel2::-webkit-scrollbar {
+  height: 8px;
+}
+.titulo2 {
+  /*titulo carrossel "Destaques"*/
+  color: white;
+  position: relative;
+  left: 25px;
+  top: -80px;
+  font-size: 30px;
+}
+.item2 {
+  flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
+  scroll-snap-align: start;
+  height: 400px;
+}
+
+.item2 img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+
+
+.carrossel3 {
+  position: relative;
+  top: -200px;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  border-radius: 15px;
+  scroll-snap-type: x mandatory; /* deixa travado no slide */
+}
+
+.carrossel3::-webkit-scrollbar {
+  height: 8px;
+}
+.titulo3 {
+  /*titulo carrossel "Destaques"*/
+  color: white;
+  position: relative;
+  left: 25px;
+  top: -197px;
+  font-size: 30px;
+}
+
+
+.carrossel4 {
+  position: relative;
+  top: -320px;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  border-radius: 15px;
+  scroll-snap-type: x mandatory; /* deixa travado no slide */
+}
+
+.carrossel4::-webkit-scrollbar {
+  height: 8px;
+}
+.titulo4 {
+  /*titulo carrossel "Destaques"*/
+  color: white;
+  position: relative;
+  left: 25px;
+  top: -320px;
+  font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
