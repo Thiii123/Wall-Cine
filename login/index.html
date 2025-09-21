@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Cadastro/Login</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    input { display: block; margin: 10px auto; padding: 10px; width: 250px; }
+    button { padding: 10px 20px; margin: 10px; }
+    img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Cadastro</h2>
+  <input type="text" id="nome" placeholder="Digite seu nome">
+  <input type="email" id="email" placeholder="Digite seu email">
+  <input type="password" id="senha" placeholder="Digite sua senha">
+  <input type="file" id="fotoInput" accept="image/*">
+  <button onclick="cadastrar()">Cadastrar</button>
+
+  <h2>Login</h2>
+  <input type="email" id="loginEmail" placeholder="Digite seu email">
+  <input type="password" id="loginSenha" placeholder="Digite sua senha">
+  <button onclick="login()">Login</button>
+
+  <p id="msg"></p>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
+
+    // 🔹 Config do Firebase (substitua pela sua)
+    const firebaseConfig = {
+       apiKey: "AIzaSyAER4NoMoZvecgIv_fha6c2wy0KyuK7y7k",
+      authDomain: "acender-um-led.firebaseapp.com",
+      projectId: "acender-um-led",
+      storageBucket: "acender-um-led.firebasestorage.app",
+      messagingSenderId: "939277131899",
+      appId: "1:939277131899:web:54035a70ff39ed931582de"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    // 🔹 CADASTRO
+    async function cadastrar() {
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+      const fotoFile = document.getElementById("fotoInput").files[0];
+      const msg = document.getElementById("msg");
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+        const user = userCredential.user;
+
+        let fotoURL = "assets/favicon.png"; // 🔹 Foto padrão
+
+        if (fotoFile) {
+          const fotoRef = ref(storage, `perfil/${user.uid}.jpg`);
+          await uploadBytes(fotoRef, fotoFile);
+          fotoURL = await getDownloadURL(fotoRef);
+        }
+
+        await updateProfile(user, { displayName: nome, photoURL: fotoURL });
+
+        await setDoc(doc(db, "usuarios", user.uid), {
+          nome: nome,
+          email: email,
+          foto: fotoURL
+        });
+
+        msg.innerText = "✅ Cadastro realizado com sucesso!";
+        window.location.href = "index2.html"; // redireciona
+      } catch (error) {
+        msg.innerText = "❌ Erro: " + error.message;
+      }
+    }
+
+    // 🔹 LOGIN
+    async function login() {
+      const email = document.getElementById("loginEmail").value;
+      const senha = document.getElementById("loginSenha").value;
+      const msg = document.getElementById("msg");
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+        const user = userCredential.user;
+
+        // Recupera dados do Firestore
+        const userDoc = await getDoc(doc(db, "usuarios", user.uid));
+        if (userDoc.exists()) {
+          console.log("Usuário:", userDoc.data());
+        }
+
+        msg.innerText = "✅ Login realizado com sucesso!";
+        window.location.href = "index2.html";
+      } catch (error) {
+        msg.innerText = "❌ Erro: " + error.message;
+      }
+    }
+
+    window.cadastrar = cadastrar;
+    window.login = login;
+  </script>
+</body>
+</html>
+

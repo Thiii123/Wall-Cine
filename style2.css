@@ -1,165 +1,22 @@
-  body {
-      background: black;
+body {
       font-family: Arial, sans-serif;
       text-align: center;
-      zoom: 85%;
-      overflow-x:hidden ;
+      margin-top: 50px;
     }
-
-
-a{
-    text-decoration: none;
-
-}
-
-.logo {
-   position: relative;
-   top: 5px;
-   left: -160px;
-    padding: 0;
-  
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  margin: 10px 0px 30px;
-  font-size: 25px;
-
-}
-
-.wall {
-  font-size: 30px;
-  color: white;
-   
-
-}
-
-
-
-.cine {
-  font-size: 22px;
-  font-weight: bold;
-  position: relative;
-  top: -25px;
-  left: 30px;
-  animation: mudarCores 3s infinite;
-}
-
-@keyframes mudarCores {
-  0%   { color: red; }
-  25%  { color: orange; }
-  50%  { color: yellow; }
-  75%  { color: green; }
-  100% { color: red; }
-}
-
-
-.menubt {
-  text-decoration: none;
-  color: white;
-}
-
-
-
-
-ul {
-  position: relative;
-  top: -20px;
-  display: flex;
-  /* deixa os itens em linha */
-  gap: 25px;
-  /* espaço entre os itens */
-  list-style: none;
-  /* remove bolinhas da lista */
-  padding: 10px;
-  margin: 0;
-  overflow-x: auto;
-  /* permite scroll na horizontal */
-  scroll-behavior: smooth;
-  /* rolagem suave */
-  width: 500px;
-}
-
-ul::-webkit-scrollbar {
-  height: 8px;
-}
-
-li {
-  flex: 0 0 auto;
-  color: white;
-  /* impede que os itens encolham */
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  font-weight: bolder;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 0;
-}
-
-
-.icone {
-  /*icone de conta */
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  z-index: 2;
-  font-size: 30px;
-}
-
-.titulo1 {
-  /*titulo carrossel "Destaques"*/
-  color: white;
-  position: relative;
-  left: 35px;
-  top: -20px;
-}
-
-
-    h1 {
-      margin-bottom: 20px;
-      color: #ffcc00;
+    .perfil {    
+        position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 3px solid #333;
+      object-fit: cover;
     }
-
-    #search {
-      width: 90%;
-      max-width: 400px;
-      padding: 15px 15px;
-      border-radius: 20px;
+    .upload-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
       border: none;
-      outline: none;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    #resultados {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-     
-    }
-
-    .card {
-    
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      width: 190px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card img {
-      width: 200px;
-      height: 300px;
-      border-radius: 30px;
-    }
-
-    .card h3 {
-      font-size: 16px;
-      margin: 8px 0 0;
-      color: #ffcc00;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
     }

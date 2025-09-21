@@ -1,165 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foto de Perfil</title>
   <link rel="stylesheet" href="style2.css">
-  <title>᭙all 𝒞ine</title>
 
 </head>
-
 <body>
-  <!--  Menu-->
 
-  <h1 class="logo"><a href="/indexprin.html"><span class="wall">᭙all</span><br> <span class="cine">𝒞ine</span></a></h1>
+  <h1 class="filp">Escolher foto de perfil</h1>
+  
+  <!-- Imagem padrão -->
+  <img id="fotoPerfil" src="assets/favicon.png" alt="" class="perfil">
 
+  <br>
+  <!-- Input escondido -->
+  <input type="file" id="uploadInput" accept="image/*" style="display: none;">
+  <button class="upload-btn" onclick="document.getElementById('uploadInput').click()">Trocar Foto</button>
 
-  <ul>
-    <li><a class="menubt" href="/indexprin.html"> Inicio</a></li>
-    <li><a class="menubt" href=""> Séries</a></li>
-    <li><a class="menubt" href=""> Filmes</a></li>
-    <li><a class="menubt" href=""> Animes</a></li>
-    <li><a class="menubt" href=""> Doramas</a></li>
-
-  </ul>
-  <div class="icone">👤</div>
-  </div>
-
-
-
-
-
-  <h1>Pesquisar no Nosso Acervo</h1>
-  <input type="text" id="search" placeholder="Digite nome, gênero ou tag...">
-  <div id="resultados"></div>
-
-  <!-- Fuse.js via CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
   <script>
+    const input = document.getElementById("uploadInput");
+    const fotoPerfil = document.getElementById("fotoPerfil");
 
-
-
-
-
-    // Lista de filmes com tags extras
-    const filmes = [
-      {
-        title: "",
-        tags: ["ação", "aventura", "Suspense", "carros", "super-herói", "Filmes", "velozes e furiosos", "familia", "filmes de açao"],
-        img: "assets/velozes.jpg" ,
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["ação", "herois", "marvel", "", "aventura", "vingadores", "capitao america", "Filmes", "filmes de açao"],
-        img: "assets/capitao.jpg" ,
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["suspense", "fantasia", "demonios", "açao", "animaçao", "animes", "aventura", "Solo leveling"],
-        img: "assets/solo.jpg" ,
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["magia", "aventura", "fantasia", "hogwarts", "bruxo", "varinha", "Harry Potter ", "filmes"],
-        img: "assets/harry.jpg" ,
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["açao", "aventura", "policial", "serie", "Suspense", "americana", "amor", "familia", "the rockie"],
-        img: "assets/therockie.jpg",
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["ação", "marvel", "heroi", "aranha", "teia", "super-herói", "Homem aranha", "filmes", "filmes de açao"],
-        img: "assets/homemaranha.jpg",
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["suspense", "fantasia", "demonios", "açao", "animaçao", "animes", "aventura", "Solo leveling"],
-        img: "assets/vincenzo.jpg" ,
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["amc", "aventura", "ficçao", "terror", "açao", "Suspense", "the walking dead the ones who live ", "Serie"],
-        img: "assets/twd.jpg" ,
-        link: ""
-
-      },
-      {
-        title: "",
-        tags: ["açao", "aventura", "ficçao cientifica", "filmes", "a", "fantasia", "amor", "familia", "como treinar o seu dragao"],
-        img: "assets/dragao.jpg" ,
-        link: ""
-      },
-      {
-        title: "",
-        tags: ["ação", "coreanos", "", "antagonista", "Suspense", "vincenzo", "doramas", "Series", "açao"],
-        img: "assets/vincenzo.jpg",
-        link: ""
+    // 🔹 Carrega a foto salva no LocalStorage ao abrir a página
+    window.addEventListener("load", () => {
+      const fotoSalva = localStorage.getItem("fotoPerfil");
+      if (fotoSalva) {
+        fotoPerfil.src = fotoSalva;
       }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ];
-
-
-
-
-    // Fuse.js para busca inteligente
-    const fuse = new Fuse(filmes, {
-      keys: ["title", "tags"], // pesquisa título e tags
-      threshold: 0.4           // tolerância a erros
     });
 
-    function buscarFilmes() {
-      const query = document.getElementById("search").value;
-      if (!query) {
-        document.getElementById("resultados").innerHTML = "";
-        return;
+    // 🔹 Quando o usuário escolher uma foto
+    input.addEventListener("change", function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          fotoPerfil.src = e.target.result; // substitui a foto
+          localStorage.setItem("fotoPerfil", e.target.result); // salva no LocalStorage
+        };
+        reader.readAsDataURL(file);
       }
-
-      const resultados = fuse.search(query);
-
-      document.getElementById("resultados").innerHTML = resultados.length
-        ? resultados.map(r => `
-          <a href="${r.item.link}" class="card">
-            <img src="${r.item.img}" alt="${r.item.title}">
-            <h3>${r.item.title}</h3>
-          </a>
-        `).join("")
-        : `<div>Nenhum resultado encontrado</div>`;
-    }
-
-    document.getElementById("search").addEventListener("input", buscarFilmes);
-
-
-
-
-
-
-
-
-
+    });
   </script>
-</body>
 
+</body>
 </html>
