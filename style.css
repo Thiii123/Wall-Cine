@@ -12,11 +12,13 @@ a{
 
 }
   .form-container {
+    position: relative;
     background: #fff;
     padding: 40px 30px;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    width: 220px;
+    width: 260px;
+
   }
 
   h2 {
@@ -28,12 +30,14 @@ a{
   .input-container {
     
     position: relative;
+
     
     margin-bottom: 25px;
   }
 
   input {
-    position: relative;
+   position: relative;
+   left: -15px;
     width: 100%;
     padding: 14px 12px;
     font-size: 16px;
