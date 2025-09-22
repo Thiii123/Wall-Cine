@@ -1,49 +1,184 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+a{
+  text-decoration: none;
+
 }
-  body{  
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #111;
-            color: white;
-            margin: 0;
-            padding: 0;
-            
-        }
-        h1 {
-            margin-top: 20px;
-        }
-        .player-container {
-            width: 90%;
-            max-width: 900px;
-            margin: 20px auto;
-        }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-        }
-        @media (max-width: 600px) {
-            iframe {
-                height: 300px;
-            }
-        }
-.inicio{
-            position: relative;
-            text-decoration: none;
-            font-family: Arial, Helvetica, sans-serif;
-            top: 365px;
-            color: white;
-            font-size: 25px;
-            font-weight: bold;
-            border: #fff solid 1px;
-            border-radius: 10px;
-            padding: 5px 20px;
-            
-              
-            
-        }
+  .form-container {
+    position: relative;
+    top: -60px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    width: 260px;
+    height: 400px;
+
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .input-container {
+    
+    position: relative;
+
+    
+    margin-bottom: 25px;
+  }
+
+  input {
+   position: relative;
+   left: -15px;
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    background: none;
+  }
+
+  input:focus {
+    border-color: #007BFF;
+  }
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 0 5px;
+    color: #aaa;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 8px;
+    font-size: 12px;
+    color: #007BFF;
+  }
+
+  .forgot-link {
+
+    display: block;
+    text-align: right;
+    margin-top: -35px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+  }
+
+  .forgot-link:hover {
+    text-decoration: underline;
+  }
+
+  .links {
+    position: relative;
+    top: 65px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .links a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 30px 10px;
+    font-weight: bold;
+    
+  }
+
+  .links a:hover {
+    text-decoration: underline;
+  }
+.login{
+  position: relative;
+  left: 70px;
+  top: -30px;
+  background-color: #007bff;
+  border-radius: 10px;
+  padding: 10px 40px;
+  color: white;
+}
+
+
+  .reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.logo {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 30px;
+  font-size: 25px;
+
+}
+
+.wall {
+  position: relative;
+  left: 30px;
+  top: -30px;
+  font-size: 50px;
+  color: white;
+
+}
+.cine {
+  
+  position: relative;
+  top: -70px;
+  left: 80px;
+  font-weight: bold;
+}
+
+.cine {
+  font-size: 42px;
+  font-weight: bold;
+  animation: mudarCores 3s infinite;
+}
+
+@keyframes mudarCores {
+  0% {
+    color: red;
+  }
+
+  25% {
+    color: orange;
+  }
+
+  50% {
+    color: yellow;
+  }
+
+  75% {
+    color: green;
+  }
+
+  100% {
+    color: red;
+  }
+}
