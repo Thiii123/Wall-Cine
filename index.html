@@ -2,37 +2,56 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="style.css">
-    <title>᭙all 𝒞ine</title>
-    <link rel="icon" type="favicon.ico" href="/assets/favicon.png">
-    <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#e50914">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <title>᭙all 𝒞ine</title>
+  <link rel="icon" type="favicon.ico" href="/assets/favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e50914">
 
 </head>
 
 
 <body>
- </div>
- <div class="fundo-escuro">  </div>
 
- <div>
-    <img class="fundo" src="/assets/fundo1.png" alt="">
- </div>
-    
-<div class="cadastro">
 
-<input id="nome" type="text" placeholder="Nome ">
-<br>
-<input id="email" type="email" placeholder="Email"  >
-<br>
-<input id="Senha" type="password" placeholder="Senha">
-<br>
-<a class="cadastro" href="#"> Cadastrar Se </a>
-<br>
-<a href="/indexprin.html">Entrar sem cadastro</a>
 
+ <div class="reveal">
+
+<h1 class="logo"><a  href="/indexprin.html"><span class="wall">᭙all</span><br> <span class="cine">𝒞ine</span></a></h1>
+
+
+    <div class="form-container">
+  <h2>Entrar / Cadastro</h2>
+
+  <div class="input-container">
+    <input type="text" placeholder=" " id="nome">
+    <label for="nome">Nome</label>
+  </div>
+
+  <div class="input-container">
+    <input type="email" placeholder=" " id="email">
+    <label for="email">Email</label>
+  </div>
+
+  <div class="input-container">
+    <input type="password" placeholder=" " id="senha">
+    <label for="senha">Senha</label>
+  </div>
+
+  <a href="#" class="forgot-link">Esqueceu a senha?</a>
+
+  <div class="links">
+    <a href="/indexprin.html">Entrar sem cadastro</a>
+    <a href="#">Cadastro</a>
+    <a href="#">Login</a>
+  </div>
+</div>
+
+</div>
 </div>
 
 
@@ -40,13 +59,34 @@
 
 
 
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("Service Worker registrado"))
-      .catch(err => console.error("Erro ao registrar Service Worker:", err));
-  }
-</script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker registrado"))
+        .catch(err => console.error("Erro ao registrar Service Worker:", err));
+    }
+
+
+
+
+      const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active"); // remove quando sair da tela
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+
+
+
+  </script>
 
 </body>
 
