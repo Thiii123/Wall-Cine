@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 140vh;
     
   }
 a{
@@ -13,7 +13,7 @@ a{
 }
   .form-container {
     position: relative;
-    top: -60px;
+    top: -210px;
     background: #fff;
     padding: 40px 30px;
     border-radius: 12px;
@@ -95,7 +95,7 @@ a{
     position: relative;
     top: 65px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 70px;
   }
 
   .links a {
@@ -144,7 +144,7 @@ a{
 .wall {
   position: relative;
   left: 30px;
-  top: -30px;
+  top: -180px;
   font-size: 50px;
   color: white;
 
@@ -152,7 +152,7 @@ a{
 .cine {
   
   position: relative;
-  top: -70px;
+  top: -223px;
   left: 80px;
   font-weight: bold;
 }

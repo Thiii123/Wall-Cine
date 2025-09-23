@@ -1,24 +1,87 @@
+
 body {
     font-family: Arial, sans-serif;
     background: black;
-    display: flex;
+    
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
     
   }
 a{
   text-decoration: none;
 
 }
+
+
+
+.logo {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 30px;
+  font-size: 25px;
+
+}
+
+.wall {
+  position: relative;
+  left: 50px;
+  top: 10px;
+  font-size: 50px;
+  color: white;
+
+}
+.cine {
+  
+  position: relative;
+  top: -33px;
+  left: 110px;
+  font-weight: bold;
+}
+
+.cine {
+  font-size: 42px;
+  font-weight: bold;
+  animation: mudarCores 3s infinite;
+}
+
+@keyframes mudarCores {
+  0% {
+    color: red;
+  }
+
+  25% {
+    color: orange;
+  }
+
+  50% {
+    color: yellow;
+  }
+
+  75% {
+    color: green;
+  }
+
+  100% {
+    color: red;
+  }
+}
+
+
+
+
+
   .form-container {
     position: relative;
-    top: -60px;
+    
+    top: -10px;
+    left: 30px;
     background: #fff;
     padding: 40px 30px;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     width: 260px;
+    height: 400px;
 
   }
 
@@ -74,6 +137,8 @@ a{
   }
 
   .forgot-link {
+    position: relative;
+    top: 20px;
 
     display: block;
     text-align: right;
@@ -90,9 +155,11 @@ a{
 
   .links {
     position: relative;
-    top: 45px;
+    top: 75px;
+    left: 10px;
     text-align: center;
     margin-top: 30px;
+    
   }
 
   .links a {
@@ -108,11 +175,11 @@ a{
   }
 .register{
   position: relative;
-  left: 70px;
-  top: -20px;
+  left: 50px;
+  top: -5px;
   background-color: #007bff;
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 10px 40px;
   color: white;
 }
 
@@ -127,10 +194,29 @@ a{
   opacity: 1;
   transform: translateY(0);
 }
+.rodape{
+height: 20%;
+width: 380px;
+position: relative;
+bottom: -130px;
+background-color: black;
+border-top: 1px solid #333;
 
 
-
-.logo {
+}
+.direitos{
+  height: 20px;
+  position: relative;
+  top: 150px;
+  border: 1px solid #333;
+  font-size: 10px;
+}
+.dev{
+  position: relative;
+  top: -10px;
+  color: white;
+}
+.logo-rodape {
   color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin-left: 30px;
@@ -138,24 +224,24 @@ a{
 
 }
 
-.wall {
+.wall2 {
   position: relative;
-  left: 30px;
-  top: -30px;
-  font-size: 50px;
+  left: -5px;
+  top: -5px;
+  font-size: 20px;
   color: white;
 
 }
-.cine {
+.cine2{
   
   position: relative;
-  top: -70px;
-  left: 80px;
+  top: -23px;
+  left: 19px;
   font-weight: bold;
 }
 
-.cine {
-  font-size: 42px;
+.cine2 {
+  font-size: 22px;
   font-weight: bold;
   animation: mudarCores 3s infinite;
 }
