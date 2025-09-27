@@ -27,6 +27,7 @@
     <div class="form-container">
   <h2>Entrar / Cadastro</h2>
 
+
   <div class="input-container">
     <input type="email" placeholder=" " id="email">
     <label for="email">Email</label>
@@ -43,19 +44,29 @@
     
     <a href="/index.html">Cadastrar se</a>
     <br>
-    <br>
     <a href="/indexprin.html">Entrar sem Login</a>
     
   </div>
-  <div ><a class="login" href="#">Login</a></div>
+  <div ><button class="login" onclick="login()">Login</button></div>
 </div>
 
 </div>
 </div>
+<br>
 
 
+<div class="rodape">
+  <h1 class="logo-rodape"><a  href="/indexprin.html"><span class="wall2">᭙all</span><br> <span class="cine2">𝒞ine</span></a></h1>
+
+<div class="direitos"><h2 class="dev">© 2025 Copyright    Dev Thiago Pereira </h2></div>
 
 
+</div>
+
+
+ <!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
 
 
   <script>
@@ -85,12 +96,57 @@
 
 
 
+
+ // 🔹 Configuração do Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyAER4NoMoZvecgIv_fha6c2wy0KyuK7y7k",
+      authDomain: "acender-um-led.firebaseapp.com",
+      projectId: "acender-um-led",
+      storageBucket: "acender-um-led.firebasestorage.app",
+      messagingSenderId: "939277131899",
+      appId: "1:939277131899:web:54035a70ff39ed931582de"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+
+    // 🔹 Função de login
+    function login() {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+
+      auth.signInWithEmailAndPassword(email, senha)
+        .then((userCredential) => {
+          const user = userCredential.user;
+
+          if (user.emailVerified) {
+            alert("Login realizado com sucesso!");
+            window.location.href = "indexprin.html"; // 🔹 Próxima página
+          } else {
+            alert("Confirme seu e-mail antes de fazer login.");
+            auth.signOut();
+          }
+        })
+        .catch((error) => {
+          alert("Erro: " + error.message);
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
   </script>
 
 </body>
 
 </html>
-    
-    
-    
-  

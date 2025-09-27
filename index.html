@@ -46,12 +46,12 @@
 
   <div class="links">
     
-    <a href="/index1.html">Login</a>
+    <a  href="/index1.html">login</a>
     <br>
     <a href="/indexprin.html">Entrar sem cadastro</a>
     
   </div>
-  <div ><a class="register" href="#">Cadastrar se</a></div>
+  <div ><button class="register" onclick="cadastrar()">Cadastrar</button></div>
 </div>
 
 </div>
@@ -69,6 +69,9 @@
 
 
 
+ <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
 
 
 
@@ -95,6 +98,48 @@
   }, { threshold: 0.1 });
 
   reveals.forEach(el => observer.observe(el));
+
+
+    
+
+
+
+ 
+  
+    // Configuração do Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyAER4NoMoZvecgIv_fha6c2wy0KyuK7y7k",
+      authDomain: "acender-um-led.firebaseapp.com",
+      projectId: "acender-um-led",
+      storageBucket: "acender-um-led.firebasestorage.app",
+      messagingSenderId: "939277131899",
+      appId: "1:939277131899:web:54035a70ff39ed931582de"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // 🔹 Função de cadastro com envio de email de verificação
+    function cadastrar() {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+
+      auth.createUserWithEmailAndPassword(email, senha)
+        .then((userCredential) => {
+          const user = userCredential.user;
+
+          // Enviar email de verificação
+          user.sendEmailVerification()
+            .then(() => {
+              alert("Verifique seu e-mail para confirmar sua conta!");
+            });
+        })
+        .catch((error) => {
+          alert("Erro: " + error.message);
+        });
+    }
+
+
 
 
 
