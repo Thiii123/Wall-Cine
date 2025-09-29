@@ -11,6 +11,13 @@ body {
 
 
 }
+ /* Estilo básico apenas para esta página */
+        .welcome-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+
 
   
 a{

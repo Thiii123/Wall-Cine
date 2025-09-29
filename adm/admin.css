@@ -1,0 +1,20 @@
+/* Estilos básicos para o painel */
+        #userList {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        #userList li {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status {
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .approved { color: green; }
+        .pending { color: orange; }

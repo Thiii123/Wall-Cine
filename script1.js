@@ -25,12 +25,12 @@ const REDIRECT_URL = "indexprin.html";
 
 // 🚨 2. SUAS CREDENCIAIS DO FIREBASE
 const firebaseConfig = {
-    apiKey: "AIzaSyAER4NoMoZvecgIv_fha6c2wy0KyuK7y7k",
-    authDomain: "acender-um-led.firebaseapp.com",
-    projectId: "acender-um-led",
-    storageBucket: "acender-um-led.firebasestorage.app",
-    messagingSenderId: "939277131899",
-    appId: "1:939277131899:web:54035a70ff39ed931582de"
+     apiKey: "AIzaSyCv2a3-3KUi4ZQKOK-G9ud5HZtWYiLCzZ4",
+  authDomain: "wall-cine.firebaseapp.com",
+  projectId: "wall-cine",
+  storageBucket: "wall-cine.firebasestorage.app",
+  messagingSenderId: "1000366296251",
+  appId: "1:1000366296251:web:5d3fd5667c8b82cccb6d9e"
 };
 
 
@@ -55,7 +55,7 @@ function displayError(elementId, message) {
 onAuthStateChanged(auth, (user) => {
     const currentPath = window.location.pathname;
     // Usando os nomes que você forneceu para as páginas de autenticação
-    const isAuthPage = currentPath.includes('index6.html') || currentPath.includes('index5.html');
+    const isAuthPage = currentPath.includes('index1.html') || currentPath.includes('index.html');
 
     if (user && isAuthPage) {
         window.location.href = REDIRECT_URL;
@@ -88,7 +88,7 @@ if (registerForm) {
 
             alert('Cadastro realizado! Um link de verificação foi enviado para seu e-mail. Faça login para continuar.');
             // Redireciona para a página de login
-            window.location.href = 'index6.html'; 
+            window.location.href = 'index1.html'; 
 
         } catch (error) {
             const errorCode = error.code;
@@ -189,7 +189,7 @@ if (logoutButton) {
         try {
             await signOut(auth); 
             // Redireciona para a página de login
-            window.location.href = 'index6.html'; 
+            window.location.href = 'index1.html'; 
         } catch (error) {
             alert('Erro ao fazer logout: ' + error.message);
         }

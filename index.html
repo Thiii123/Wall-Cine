@@ -1,151 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
-  
-  <link rel="stylesheet" href="style.css">
-  
-  <title>᭙all 𝒞ine</title>
-  <link rel="icon" type="favicon.ico" href="/assets/favicon.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#e50914">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Firebase Auth</title>
+    <link rel="stylesheet" href="style5.css">
 </head>
-
-
 <body>
+    <div class="container">
+        <h2>Criar Nova Conta</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" placeholder="Seu nome" required>
+            </div>
 
+            <div class="input-group">
+                <label for="regEmail">Email</label>
+                <input type="email" id="regEmail" placeholder="seu.email@exemplo.com" required>
+                <div id="emailError" class="error-message"></div>
+            </div>
 
+            <div class="input-group">
+                <label for="regPassword">Senha</label>
+                <input type="password" id="regPassword" placeholder="Mínimo 6 caracteres" required>
+                <div id="passwordError" class="error-message"></div>
+            </div>
 
- <div class="reveal">
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="index1.html">Faça Login</a></p>
+    </div>
 
-<h1 class="logo"><a  href="/indexprin.html"><span class="wall">᭙all</span><br> <span class="cine">𝒞ine</span></a></h1>
-
-
-    <div class="form-container">
-  <h2>Entrar / Cadastro</h2>
-
-  <div class="input-container">
-    <input type="text" placeholder=" " id="nome">
-    <label for="nome">Nome</label>
-  </div>
-
-  <div class="input-container">
-    <input type="email" placeholder=" " id="email">
-    <label for="email">Email</label>
-  </div>
-
-  <div class="input-container">
-    <input type="password" placeholder=" " id="senha">
-    <label for="senha">Senha</label>
-  </div>
-
-  <a href="#" class="forgot-link">Esqueceu a senha?</a>
-
-  <div class="links">
-    
-    <a  href="/index1.html">login</a>
-    <br>
-    <a href="/indexprin.html">Entrar sem cadastro</a>
-    
-  </div>
-  <div ><button class="register" onclick="cadastrar()">Cadastrar</button></div>
-</div>
-
-</div>
-</div>
-<br>
-
-
-<div class="rodape">
-  <h1 class="logo-rodape"><a  href="/indexprin.html"><span class="wall2">᭙all</span><br> <span class="cine2">𝒞ine</span></a></h1>
-
-<div class="direitos"><h2 class="dev">© 2025 Copyright    Dev Thiago Pereira </h2></div>
-
-
-</div>
-
-
-
- <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
-
-
-
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
-        .then(() => console.log("Service Worker registrado"))
-        .catch(err => console.error("Erro ao registrar Service Worker:", err));
-    }
-
-
-
-
-      const reveals = document.querySelectorAll(".reveal");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-      } else {
-        entry.target.classList.remove("active"); // remove quando sair da tela
-      }
-    });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(el => observer.observe(el));
-
-
-    
-
-
-
- 
-  
-    // Configuração do Firebase
-    const firebaseConfig = {
-        apiKey: "AIzaSyAER4NoMoZvecgIv_fha6c2wy0KyuK7y7k",
-      authDomain: "acender-um-led.firebaseapp.com",
-      projectId: "acender-um-led",
-      storageBucket: "acender-um-led.firebasestorage.app",
-      messagingSenderId: "939277131899",
-      appId: "1:939277131899:web:54035a70ff39ed931582de"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // 🔹 Função de cadastro com envio de email de verificação
-    function cadastrar() {
-      const email = document.getElementById("email").value;
-      const senha = document.getElementById("senha").value;
-
-      auth.createUserWithEmailAndPassword(email, senha)
-        .then((userCredential) => {
-          const user = userCredential.user;
-
-          // Enviar email de verificação
-          user.sendEmailVerification()
-            .then(() => {
-              alert("Verifique seu e-mail para confirmar sua conta!");
-            });
-        })
-        .catch((error) => {
-          alert("Erro: " + error.message);
-        });
-    }
-
-
-
-
-
-
-  </script>
-
+    <script type="module" src="script1.js" defer></script> 
 </body>
-
 </html>
