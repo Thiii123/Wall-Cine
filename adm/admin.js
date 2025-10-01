@@ -1,133 +1,105 @@
-// ====================================================================
-// CONFIGURAÇÃO SUPABASE
-// ====================================================================
+// O campo 'genre' é usado para pesquisa (contém todas as palavras-chave).
+// O campo 'display_genre' é usado APENAS para o que será exibido na tela.
 
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+const allMovies = [
+    { 
+        title: "O Poderoso Chefão", 
+        url: "filmes/poderoso_chefao.html",
+        // Campo para OTIMIZAR A PESQUISA (Palavras-chave escondidas)
+        genre: "Crime, Drama, Clássico, Máfia, Melhores Filmes",
+        // Campo para EXIBIÇÃO VISUAL (O que o usuário vê)
+        display_genre: "Crime, Drama",
+        actors: "Marlon Brando, Al Pacino",
+        image_path: "images/chefao.jpg" 
+    },
+    { 
+        title: "A Origem", 
+        url: "filmes/a_origem.html",
+        genre: "Ficção Científica, Ação, Thriller, Sonhos, Leonardo DiCaprio",
+        display_genre: "Ficção Científica, Ação",
+        actors: "Leonardo DiCaprio, Joseph Gordon-Levitt",
+        image_path: "images/origem.jpg" 
+    },
+    { 
+        title: "O Chamado", 
+        url: "filmes/o_chamado.html",
+        genre: "Terror, Horror, Sobrenatural, Suspense",
+        display_genre: "Terror, Horror",
+        actors: "Naomi Watts",
+        image_path: "images/chamado.jpg" 
+    },
+    { 
+        title: "La La Land", 
+        url: "filmes/la_la_land.html",
+        genre: "Musical, Romance, Comédia Dramática, Ryan Gosling , thiago",
+        display_genre: "Musical, Romance",
+        actors: "Ryan Gosling, Emma Stone",
+        image_path: "images/lalaland.jpg" 
+    },
+    // Adicione mais filmes aqui, usando 'genre' para a pesquisa e 'display_genre' para a tela
+];
 
-// 🚨 SUBSTITUA POR SEUS DADOS REAIS DO SUPABASE
-const SUPABASE_URL = 'https://gbuowxayzylevrpxefjt.supabase.co'; 
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdidW93eGF5enlsZXZycHhlZmp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkwNzY2NjYsImV4cCI6MjA3NDY1MjY2Nn0.tx0AtB1zHLaIhPgEdzvb0vfGZ6aPqT0j_pm6Arp3rK4'; 
+const movieListElement = document.getElementById('movieList');
+const searchInput = document.getElementById('searchInput');
 
-// 🚨 E-MAIL DE ADMINISTRADOR: SUBSTITUA PELO SEU E-MAIL REAL!
-const ADMIN_EMAIL = "bits7130@gmail.com"; 
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-const userList = document.getElementById('userList');
-const userCount = document.getElementById('userCount');
-
-
-// ====================================================================
-// SEGURANÇA E PROTEÇÃO DA PÁGINA ADMIN
-// ====================================================================
-
-supabase.auth.onAuthStateChange(async (event, session) => {
-    const user = session?.user;
-    
-    if (user && user.email === ADMIN_EMAIL) {
-        // Usuário é o administrador: Libera a página e carrega a lista.
-        loadUsers(); 
-    } else {
-        // NÃO é administrador ou está deslogado: Redireciona para o login.
-        alert("Acesso Negado. Você não é um administrador.");
-        // Não é necessário deslogar, pois o sistema de login já deve ter barrado
-        if (event !== 'SIGNED_OUT') {
-             await supabase.auth.signOut();
-        }
-        window.location.href = 'index6.html'; 
-    }
-});
-
-
-// ====================================================================
-// FUNÇÃO DE GERENCIAMENTO E INTERAÇÃO COM O SUPABASE
-// ====================================================================
-
-async function loadUsers() {
-    userList.innerHTML = '<li>Carregando usuários...</li>';
-
-    // Para ler a lista completa, o Admin precisa ter a política SELECT configurada.
-    const { data: users, error } = await supabase
-        .from('aprovacoes')
-        .select('*')
-        .order('created_at', { ascending: false });
-        
-    if (error) {
-        userList.innerHTML = '<li>Erro ao carregar usuários. Verifique as Políticas RLS.</li>';
-        console.error("Erro ao carregar usuários:", error);
-        return;
-    }
-    
-    userList.innerHTML = '';
-    userCount.textContent = users.length;
-
-    users.forEach((userData) => {
-        const isApproved = userData.aprovado;
-        const statusClass = isApproved ? 'approved' : 'pending';
-        const statusText = isApproved ? 'Aprovado' : 'Pendente';
-        const buttonText = isApproved ? 'Bloquear' : 'Aprovar';
-
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            <div>
-                <strong>${userData.nome || 'N/A'}</strong> (${userData.email})
-            </div>
-            <div>
-                <span class="status ${statusClass}">${statusText}</span>
-                <button data-uid="${userData.user_id}" data-status="${isApproved}" class="toggleButton">${buttonText}</button>
-            </div>
-        `;
-        userList.appendChild(listItem);
-    });
-
-    attachButtonListeners();
+// Função Acionada ao Clicar em uma Tag Rápida
+function searchByTag(tag) {
+    searchInput.value = tag;
+    filterMovies();
 }
 
-function attachButtonListeners() {
-    document.querySelectorAll('.toggleButton').forEach(button => {
-        button.addEventListener('click', async (e) => {
-            const btn = e.target;
-            const userId = btn.getAttribute('data-uid');
-            const currentStatus = btn.getAttribute('data-status') === 'true';
-            const newStatus = !currentStatus;
+// Função Principal de Pesquisa (Não muda, pois continua pesquisando no campo 'genre')
+function filterMovies() {
+    const searchTerm = searchInput.value.trim().toUpperCase();
+    movieListElement.innerHTML = ''; 
 
-            btn.disabled = true;
-            btn.textContent = 'Aguarde...';
+    if (searchTerm === "") {
+        return; 
+    }
+    
+    // O filtro continua usando o campo 'genre' (o campo com todas as palavras-chave)
+    const results = allMovies.filter(movie => {
+        const fullText = (movie.title + " " + movie.genre + " " + movie.actors).toUpperCase();
+        return fullText.includes(searchTerm);
+    });
 
-            try {
-                // Atualiza o documento no Supabase
-                // O RLS deve permitir que apenas o Admin faça este UPDATE.
-                const { error } = await supabase
-                    .from('aprovacoes')
-                    .update({ aprovado: newStatus })
-                    .eq('user_id', userId);
+    // Renderiza os Resultados Clicáveis
+    if (results.length > 0) {
+        results.forEach(movie => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = movie.url; 
+            
+            // *************************************************************
+            // * MUDANÇA AQUI: Usamos movie.display_genre para a exibição! *
+            // *************************************************************
+            const genresArray = movie.display_genre.split(', ');
+            
+            let tagsHtml = genresArray.map(tag => 
+                // A tag que corresponde à pesquisa é destacada
+                `<span class="genre-tag ${movie.genre.toUpperCase().includes(searchTerm) ? 'highlighted-tag' : ''}">${tag}</span>`
+            ).join(''); 
 
-                if (error) throw error;
-
-                alert(`Usuário ${newStatus ? 'Aprovado' : 'Bloqueado'} com sucesso!`);
-                loadUsers();
-
-            } catch (error) {
-                alert('Erro ao atualizar status. Verifique o RLS e o e-mail do Admin: ' + error.message);
-                btn.disabled = false;
-                btn.textContent = currentStatus ? 'Bloquear' : 'Aprovar';
-            }
+            link.innerHTML = `
+                <img src="${movie.image_path}" alt="Pôster do filme ${movie.title}" class="movie-poster">
+                <div class="movie-info">
+                    <span class="movie-title">${movie.title}</span>
+                    <div class="movie-tags">
+                        ${tagsHtml}
+                    </div>
+                    <span class="movie-details">
+                        Atores: ${movie.actors.split(',')[0].trim()}...
+                    </span>
+                </div>
+            `;
+            
+            listItem.appendChild(link);
+            movieListElement.appendChild(listItem);
         });
-    });
-}
-
-
-// ====================================================================
-// LÓGICA DE LOGOUT DO ADMIN
-// ====================================================================
-
-const adminLogoutButton = document.getElementById('adminLogoutButton');
-if (adminLogoutButton) {
-    adminLogoutButton.addEventListener('click', async () => {
-        try {
-            await supabase.auth.signOut(); 
-            window.location.href = 'index6.html'; 
-        } catch (error) {
-            alert('Erro ao sair: ' + error.message);
-        }
-    });
+    } else {
+        const noResult = document.createElement('li');
+        noResult.textContent = `Nenhum resultado encontrado para "${searchTerm}".`;
+        noResult.className = 'no-results';
+        movieListElement.appendChild(noResult);
+    }
 }

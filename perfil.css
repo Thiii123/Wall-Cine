@@ -1,8 +1,166 @@
-*{
-    box-sizing: border-box;
-    background-color: black;
-    color: white;
-    
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #393942;
+            color: #333;
+           
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
 
+        .profile-container {
+            /*background-color: #fff;*/
+            padding: 40px;
+            border-radius: 10px;
+            /*9box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        /* --- Estilo da Foto de Perfil --- */
+        .profile-pic-link {
+            display: block;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #007bff;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .edit-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1em;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .profile-pic-link:hover .edit-overlay {
+            opacity: 1;
+        }
+
+        /* --- Estilos do MODAL (Janela Pop-up de Edição) --- */
+
+        .modal {
+            /* Esconde o modal por padrão */
+            display: none; 
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /* Fundo escurecido */
+            background-color: rgba(0, 0, 0, 0.4); 
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* Centraliza verticalmente e horizontalmente */
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .preview-area {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .preview-area h2 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        #newProfilePreview {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+        }
+        
+        /* Estilos de botão genéricos */
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        
+        #saveButton {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        #saveButton:hover {
+            background-color: #218838;
+        }
+
+        #cancelButton {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        #cancelButton:hover {
+            background-color: #c82333;
+        }
+        
+        #fileInput {
+            margin: 15px 0;
+        }
+#logoutButton{
+    position: relative;
+    left: 150px;
 
 }

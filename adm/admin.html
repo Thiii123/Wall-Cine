@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Administração</title>
+    <title>Pesquisa de Filmes com Imagens</title>
     <link rel="stylesheet" href="admin.css">
-   
-</head>
+    
+    </head>
 <body>
-    <div class="container">
-        <h2>Painel de Gerenciamento de Usuários</h2>
-        <button id="adminLogoutButton">Sair do Admin</button>
 
-        <p>Usuários Cadastrados (<span id="userCount">0</span>):</p>
-        <ul id="userList">
+    <div class="container">
+        <h1>Pesquisa de Filmes</h1>
+        
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Pesquise seu filme por título, ator ou gênero..."
+            onkeyup="filterMovies()" 
+        >
+        
+        <ul id="movieList">
             </ul>
     </div>
-    
-    <script type="module" src="admin.js" defer></script>
+
+    <script src="admin.js"></script>
+
 </body>
 </html>

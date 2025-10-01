@@ -22,7 +22,6 @@
 
   </ul>
 
-  <div class="icone"> <a href="/perfil.html">👤</a></div>
 <div><a class="lupa" href="/index2.html">🔍</a></div>
   <div class="imgprincipal">
     <img class="imagem" src="/assets/dragao.jpg" alt="">
@@ -107,8 +106,23 @@
 
 
 
- 
-   
+  <a class="linkprin" href="perfil.html"><div class="profile-container">
+        
+        
+        <div class="profile-pic-link" onclick="openModal()">
+            <img id="profileImage" src="images/default_profile.jpg" alt="Foto de Perfil" class="profile-pic">
+            
+
+        </div>
+
+        
+    </div></a>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Trocar Foto de Perfil</h2>
+            </div>
 
 
 
@@ -175,15 +189,101 @@
 
 
 
-
-
-  
-  
-  
-  
-  
  </script>
  
+
+
+<script>
+        const profileImage = document.getElementById('profileImage');
+        const newProfilePreview = document.getElementById('newProfilePreview');
+        const fileInput = document.getElementById('fileInput');
+        const modal = document.getElementById('editModal');
+        const LOCAL_STORAGE_KEY = 'profileImageBase64';
+
+        // --- 1. Lógica do Modal ---
+
+        function openModal() {
+            // Garante que a prévia tenha a imagem atual antes de abrir
+            newProfilePreview.src = profileImage.src;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            // Opcional: Limpa o campo de arquivo quando fechar
+            fileInput.value = ''; 
+        }
+
+        // Fecha o modal ao clicar fora dele
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // --- 2. Lógica da Prévia da Imagem ---
+
+        function previewFile() {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                // Se o usuário cancelar a seleção, volta para a foto atual
+                newProfilePreview.src = profileImage.src;
+                return;
+            }
+
+            reader.onloadend = function () {
+                // Mostra a imagem selecionada no modal
+                newProfilePreview.src = reader.result; 
+            }
+        }
+        
+        // --- 3. Lógica de Salvar a Imagem ---
+
+        function saveProfilePicture() {
+            const file = fileInput.files[0];
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                
+                reader.onloadend = function () {
+                    const base64Image = reader.result;
+                    
+                    // 1. Salva a nova imagem no Local Storage
+                    localStorage.setItem(LOCAL_STORAGE_KEY, base64Image);
+                    
+                    // 2. Atualiza a imagem na página de perfil
+                    profileImage.src = base64Image;
+                    
+                    alert('Foto de perfil salva com sucesso!');
+                    closeModal();
+                }
+            } else {
+                alert('Nenhuma nova imagem selecionada.');
+                closeModal(); 
+            }
+        }
+        
+        // --- 4. Lógica de Carregamento Inicial ---
+
+        // Função executada assim que a página é carregada
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedImage = localStorage.getItem(LOCAL_STORAGE_KEY);
+            
+            if (savedImage) {
+                // Carrega a imagem salva do Local Storage, se existir
+                profileImage.src = savedImage;
+            } 
+        });
+
+    </script>
+
+
+
 </body> 
 
 </html>

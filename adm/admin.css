@@ -1,20 +1,85 @@
-/* Estilos básicos para o painel */
-        #userList {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-        #userList li {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .status {
-            font-weight: bold;
-            margin-right: 15px;
-        }
-        .approved { color: green; }
-        .pending { color: orange; }
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px; 
+}
+
+h1 {
+    text-align: center;
+    color: #cc0000;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#movieList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#movieList li {
+    
+    margin-bottom: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    overflow: hidden; /* Garante que tudo caiba dentro */
+}
+
+/* Estilo para o link (Resultado Completo) */
+#movieList li a {
+    display: flex; /* ATIVA O ALINHAMENTO LADO A LADO */
+    align-items: center; /* Alinha verticalmente */
+    padding: 10px;
+    text-decoration: none; 
+    color: #cac6c6;
+}
+
+/* Estilo da Imagem */
+.movie-poster {
+    width: 50px; /* Tamanho fixo da imagem de thumb */
+    height: 75px; /* Proporção 2:3 (pôster) */
+    object-fit: cover;
+    border-radius: 3px;
+    margin-right: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo da Área de Texto (Título e Detalhes) */
+.movie-info {
+    display: flex;
+    flex-direction: column; /* Coloca título em cima de detalhes */
+    flex-grow: 1; /* Faz ocupar o espaço restante */
+}
+
+.movie-title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.movie-details {
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-top: 2px;
+}
+
