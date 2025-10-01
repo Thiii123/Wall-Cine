@@ -1,49 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foto de Perfil</title>
-  <link rel="stylesheet" href="style2.css">
-
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Filmes com Imagens</title>
+    <link rel="stylesheet" href="style2.css">
+    
+    </head>
 <body>
 
-  <h1 class="filp">Escolher foto de perfil</h1>
-  
-  <!-- Imagem padrão -->
-  <img id="fotoPerfil" src="assets/favicon.png" alt="" class="perfil">
+    <div class="container">
+        <h1>Pesquisa de Filmes</h1>
+        
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Pesquise seu filme por título, ator ou gênero..."
+            onkeyup="filterMovies()" 
+        >
+        
+        <ul id="movieList">
+            </ul>
+    </div>
 
-  <br>
-  <!-- Input escondido -->
-  <input type="file" id="uploadInput" accept="image/*" style="display: none;">
-  <button class="upload-btn" onclick="document.getElementById('uploadInput').click()">Trocar Foto</button>
-
-  <script>
-    const input = document.getElementById("uploadInput");
-    const fotoPerfil = document.getElementById("fotoPerfil");
-
-    // 🔹 Carrega a foto salva no LocalStorage ao abrir a página
-    window.addEventListener("load", () => {
-      const fotoSalva = localStorage.getItem("fotoPerfil");
-      if (fotoSalva) {
-        fotoPerfil.src = fotoSalva;
-      }
-    });
-
-    // 🔹 Quando o usuário escolher uma foto
-    input.addEventListener("change", function() {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          fotoPerfil.src = e.target.result; // substitui a foto
-          localStorage.setItem("fotoPerfil", e.target.result); // salva no LocalStorage
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-  </script>
+    <script src="script2.js"></script>
 
 </body>
 </html>
