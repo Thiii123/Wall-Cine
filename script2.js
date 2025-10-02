@@ -36,6 +36,22 @@ const allMovies = [
         actors: "Ryan Gosling, Emma Stone",
         image_path: "images/lalaland.jpg" 
     },
+    { 
+        title: "Solo Leveling", 
+        url: "Animes/animes2.html",
+        genre: "Açao, ação, Animes, Animação, aventura",
+        display_genre: "Anime , Aventura",
+        actors: "Taito ban, Aleks le ",
+        image_path: "assets/solo2.jpg" 
+    },
+    { 
+        title: "Kaiju N8 ", 
+        url: "Animes/animes1.html",
+        genre: "Kaiju, Super-heroi, Ação, animes , aventura",
+        display_genre: "Animação , Super-Heroi",
+        actors: "Masaya Fukunishi, Ai Fairouz",
+        image_path: "assets/kaiju.jpg" 
+    },
     // Adicione mais filmes aqui, usando 'genre' para a pesquisa e 'display_genre' para a tela
 ];
 
