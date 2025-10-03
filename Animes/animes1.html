@@ -15,15 +15,24 @@
 
 
 
+
+<div class="discriçao">
+<h1>kaiju N8</h1>
+
+
+</div>
+
+
+
+
         <h1 class="titulo2">Você também pode gostar</h1>
 
-
         <div class="carrossel2">
-            <div class="item2"><img src="/assets/caçadores (1).jpg" alt=""></div>
-            <div class="item2"><img src="/assets/harry.jpg" alt=""></div>
-            <div class="item2"><img src="/assets/homemaranha.jpg" alt=""></div>
-            <div class="item2"><img src="/assets/therockie.jpg" alt=""></div>
-            <div class="item2"><img src="/assets/velozes.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/como.dragao.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/demon.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/luffy.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/solo2.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/kaiju.jpg" alt=""></div>
         </div>
     </div>
 
@@ -48,6 +57,7 @@
             margin: 0;
             padding: 0;
             height: 190vh;
+            box-sizing: border-box;
 
         }
 
@@ -62,7 +72,7 @@
             height: 500px;
             border: none;
             border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            /* box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);*/
         }
 
         @media (max-width: 600px) {
@@ -70,10 +80,26 @@
                 height: 300px;
             }
         }
+.discriçao{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border: 1px solid #111;
+    margin-top: 10px;
+
+}
+.discriçao h1{
+    position: relative;
+    margin-top: 10px;
+    
+    
+}
+
+
 
         .carrossel2 {
             position: relative;
-            top: 60px;
+            top: 40px;
             display: flex;
             gap: 15px;
             overflow-x: auto;
@@ -93,7 +119,7 @@
             color: white;
             position: relative;
             left: -25px;
-            top: 40px;
+            top: 25px;
             font-size: 25px;
         }
 
@@ -109,7 +135,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: left;
+        
             border-radius: 25px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
