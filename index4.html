@@ -7,80 +7,64 @@
 </head>
 <body>
     
-
 <header>
     <nav class="navbar">
-        <a href="#" class="logo">Meu Logo</a>
-        
-        <button class="hamburger" id="hamburger-menu" aria-label="Abrir Menu">
+        <button class="hamburger" id="hamburger-menu" aria-label="Abrir Menu Lateral">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
 
-        <ul class="nav-menu" id="nav-menu">
-            <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
-            <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
-            <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
-            <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
-        </ul>
-    </nav>
+        <a href="#" class="logo">Meu Logo</a>
+        
+        </nav>
 </header>
 
+<nav class="side-menu" id="side-menu">
+    <a href="#perfil" class="nav-link">Meu Perfil</a>
+    <a href="#mensagens" class="nav-link">Mensagens</a>
+    <a href="#config" class="nav-link">Configurações</a>
+    <a href="#sair" class="nav-link">Sair</a>
+    <a href="#sair" class="nav-link">Sair</a>
+</nav>
 
-<style>
+<div id="menu-overlay" class="menu-overlay" onclick="closeMenu()"></div>
 
+
+
+<style>/* Estilo Básico do Header */
 body{
     background-color: black;
 
-}
 
-/* Estilo Básico do Header */
+
+}
 .navbar {
     display: flex;
-    justify-content: space-between; /* Espaça o logo e o menu */
-    align-items: center;
-    
+    /* Alinha o Hambúrguer (esquerda) e o Logo */
+    align-items: center; 
+   
     padding: 10px 20px;
     color: white;
 }
 
 .logo {
+    /* Mantenha o logo afastado do hambúrguer */
+    margin-left: 20px; 
     font-size: 1.5em;
     font-weight: bold;
     color: white;
     text-decoration: none;
 }
 
-/* --- Estilo do Menu de Navegação --- */
-.nav-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Mantém os itens lado a lado em telas grandes */
-}
-
-.nav-item a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-.nav-item a:hover {
-    background-color: #555;
-}
-
-/* --- Estilo e Lógica do Hambúrguer (Mobile) --- */
-
-/* 1. Esconde o ícone do hambúrguer em telas grandes */
+/* --- Estilo e Posição do Hambúrguer --- */
 .hamburger {
-    display: none; 
     border: 0;
     background: none;
     cursor: pointer;
     padding: 10px;
+    /* Move o ícone para a esquerda (se o header for Flex) */
+    order: -1; 
 }
 
 .bar {
@@ -92,41 +76,63 @@ body{
     transition: all 0.3s ease-in-out;
 }
 
-/* 2. Regras para telas menores (ex: celulares) */
-@media (max-width: 768px) {
-    .hamburger {
-        /* Revela o hambúrguer */
-        display: block; 
-    }
-
-    .nav-menu {
-        /* O menu é transformado em uma coluna */
-        position: absolute;
-        top: 60px; /* Coloca o menu abaixo do header */
-        left: 0;
-        background-color: #333;
-        width: 100%;
-        height: 0; /* CRÍTICO: Esconde o menu por padrão */
-        overflow: hidden; /* Garante que os links fiquem escondidos */
-        flex-direction: column;
-        transition: height 0.3s ease-in-out;
-    }
+/* --- Estilo do Menu Lateral (Side-Drawer) --- */
+.side-menu {
+    position: fixed; /* Fixa o menu na tela */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    height: 100%; /* Ocupa toda a altura da tela */
+    width: 200px; /* Largura do menu aberto */
+    background-color: #222;
+    padding-top: 60px; /* Espaço para o topo da tela */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     
-    .nav-item {
-        text-align: center;
-        margin: 5px 0;
-    }
-
-    /* CLASSE JS: Adicionada/Removida pelo JavaScript para ABRIR o menu */
-    .nav-menu.active {
-        /* Ajuste a altura para que caiba todo o seu menu. Ex: 200px */
-        height: 200px; 
-        border-top: 1px solid #555;
-    }
+    /* CRÍTICO: ESCONDE o menu fora da tela */
+    transform: translateX(-100%); 
+    transition: transform 0.3s ease-in-out;
+    
+    /* Estilos de link */
+    display: flex;
+    flex-direction: column;
 }
 
-</style>
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.2s;
+}
 
+.side-menu a:hover {
+    background-color: #444;
+}
+
+/* CLASSE JS: Ativada pelo JavaScript para MOVER o menu para dentro */
+.side-menu.active {
+    /* Move o menu 100% para dentro (da esquerda para a direita) */
+    transform: translateX(0); 
+}
+
+/* --- Estilo do Overlay (Fundo Escurecido) --- */
+.menu-overlay {
+    /* Esconde o overlay por padrão */
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999; /* Fica entre o menu e o conteúdo */
+    cursor: pointer;
+}
+
+/* CLASSE JS: Ativada pelo JavaScript para MOSTRAR o overlay */
+.menu-overlay.active {
+    display: block; 
+}</style>
 
 
 <script src="script4.js"></script>

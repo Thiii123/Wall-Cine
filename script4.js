@@ -1,24 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Pega os elementos do HTML
     const hamburger = document.getElementById('hamburger-menu');
-    const navMenu = document.getElementById('nav-menu');
+    const sideMenu = document.getElementById('side-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
 
-    // 2. Adiciona um "ouvinte de evento" ao botão do hambúrguer
+    // Função para abrir o menu
+    function openMenu() {
+        sideMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        // Opcional: Impede o scroll no corpo quando o menu está aberto
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    // Função para fechar o menu
+    function closeMenu() {
+        sideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        // Opcional: Restaura o scroll do corpo
+        document.body.style.overflow = 'auto'; 
+    }
+
+    // 1. Abrir/Fechar ao clicar no ícone hambúrguer
     hamburger.addEventListener('click', () => {
-        // 3. Alterna a classe 'active' no menu
-        // Se a classe existe, remove; se não existe, adiciona.
-        navMenu.classList.toggle('active');
-        
-        // Opcional: Adiciona/Remove uma classe no próprio botão para animá-lo 
-        // (ex: transformando as barras em um 'X')
-        hamburger.classList.toggle('is-active'); 
+        // Verifica se o menu está fechado para decidir se abre ou fecha
+        if (!sideMenu.classList.contains('active')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
     });
     
-    // Opcional: Fecha o menu ao clicar em qualquer link (útil no mobile)
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('is-active');
-        });
+    // 2. Fechar ao clicar no overlay de fundo
+    menuOverlay.addEventListener('click', closeMenu);
+
+    // 3. Fechar ao clicar em um link do menu (opcional)
+    document.querySelectorAll('.side-menu .nav-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // 4. Fechar ao pressionar a tecla ESC
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && sideMenu.classList.contains('active')) {
+            closeMenu();
+        }
     });
 });
