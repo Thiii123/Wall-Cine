@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+</head>
+<body>
+    
+
+<header>
+    <nav class="navbar">
+        <a href="#" class="logo">Meu Logo</a>
+        
+        <button class="hamburger" id="hamburger-menu" aria-label="Abrir Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
+            <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+            <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
+            <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<style>
+
+body{
+    background-color: black;
+
+}
+
+/* Estilo Básico do Header */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Espaça o logo e o menu */
+    align-items: center;
+    
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* --- Estilo do Menu de Navegação --- */
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Mantém os itens lado a lado em telas grandes */
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav-item a:hover {
+    background-color: #555;
+}
+
+/* --- Estilo e Lógica do Hambúrguer (Mobile) --- */
+
+/* 1. Esconde o ícone do hambúrguer em telas grandes */
+.hamburger {
+    display: none; 
+    border: 0;
+    background: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 2. Regras para telas menores (ex: celulares) */
+@media (max-width: 768px) {
+    .hamburger {
+        /* Revela o hambúrguer */
+        display: block; 
+    }
+
+    .nav-menu {
+        /* O menu é transformado em uma coluna */
+        position: absolute;
+        top: 60px; /* Coloca o menu abaixo do header */
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        height: 0; /* CRÍTICO: Esconde o menu por padrão */
+        overflow: hidden; /* Garante que os links fiquem escondidos */
+        flex-direction: column;
+        transition: height 0.3s ease-in-out;
+    }
+    
+    .nav-item {
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    /* CLASSE JS: Adicionada/Removida pelo JavaScript para ABRIR o menu */
+    .nav-menu.active {
+        /* Ajuste a altura para que caiba todo o seu menu. Ex: 200px */
+        height: 200px; 
+        border-top: 1px solid #555;
+    }
+}
+
+</style>
+
+
+
+<script src="script4.js"></script>
+</body>
+</html>
