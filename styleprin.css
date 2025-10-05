@@ -158,9 +158,9 @@ li {
 
   margin: 0;
   width: 100%;
-  height: 655px;
+  height: 685px;
   overflow: hidden;
-  border-radius: 45px;
+  
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -201,34 +201,25 @@ li {
 .carrossel::-webkit-scrollbar {
   height: 8px;
 }
-.titulo1 {
-  /*titulo carrossel "Destaques"*/
+.titulo {
+  /*titulo carrossel "destaques"*/
+  
   color: white;
   position: relative;
+  display: flex;
   left: 25px;
-  top: 5px;
+  top: 15px;
   font-size: 30px;
 }
 
-.item {
-  flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
-  scroll-snap-align: start;
-  height: 400px;
-}
-
-.item img {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-  border-radius: 25px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
 
 
 
-.carrossel2 {
+
+
+.carrossel2 { /*carrossel "Recomendados para você"*/
   position: relative;
-  top: -80px;
+  top: -90px;
   display: flex;
   gap: 15px;
   overflow-x: auto;
@@ -242,12 +233,22 @@ li {
   height: 8px;
 }
 .titulo2 {
-  /*titulo carrossel "Destaques"*/
+  /*titulo carrossel "Recomendados para você"*/
+ 
   color: white;
   position: relative;
   left: 25px;
-  top: -80px;
+  top: -78px;
   font-size: 30px;
+}
+.link-mais1{
+ color: rgb(153, 150, 150);
+  position: relative;
+ right: -290px;
+  top: -135px;
+  font-size: 30px;
+
+
 }
 .item2 {
   flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
@@ -257,17 +258,17 @@ li {
 
 .item2 img {
   width: 100%;
-  height: 70%;
+  height: 80%;
   object-fit: cover;
-  border-radius: 25px;
+ 
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 
 
-.carrossel3 {
+.carrossel3 {  /*carrossel "Popular na TV"*/
   position: relative;
-  top: -200px;
+  top: -175px;
   display: flex;
   gap: 15px;
   overflow-x: auto;
@@ -281,18 +282,26 @@ li {
   height: 8px;
 }
 .titulo3 {
-  /*titulo carrossel "Destaques"*/
+  /*titulo carrossel "Popular na TV"*/
   color: white;
   position: relative;
   left: 25px;
-  top: -197px;
+  top: -165px;
   font-size: 30px;
+}
+.link-mais2{
+ color: rgb(153, 150, 150);
+  position: relative;
+ right: -290px;
+  top: -255px;
+  font-size: 30px;
+
 }
 
 
-.carrossel4 {
+.carrossel4 {  /*carrossel "As Maiores Franquias"*/
   position: relative;
-  top: -320px;
+  top: -265px;
   display: flex;
   gap: 15px;
   overflow-x: auto;
@@ -306,13 +315,69 @@ li {
   height: 8px;
 }
 .titulo4 {
-  /*titulo carrossel "Destaques"*/
+  /*titulo carrossel "Realities e competições"*/
   color: white;
   position: relative;
   left: 25px;
-  top: -320px;
+  top: -255px;
   font-size: 30px;
 }
+
+.carrossel5 {  /*carrossel "Realities e competições"*/
+  position: relative;
+  top: -345px;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  border-radius: 15px;
+  scroll-snap-type: x mandatory; /* deixa travado no slide */
+}
+
+.carrossel5::-webkit-scrollbar {
+  height: 8px;
+}
+.titulo5 {
+  /*titulo carrossel "Realities e competições"*/
+  color: white;
+font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  left: 25px;
+  top: -335px;
+  font-size: 30px;
+}
+
+.carrossel6{  /*carrossel "Discovery para você"*/
+  position: relative;
+  top: -425px;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  border-radius: 15px;
+  scroll-snap-type: x mandatory; /* deixa travado no slide */
+}
+
+.carrossel6::-webkit-scrollbar {
+  height: 8px;
+}
+.titulo6 {
+  /*titulo carrossel "Discovery para você"*/
+  color: white;
+font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  left: 25px;
+  top: -415px;
+  font-size: 30px;
+}
+
+
+
+
+
+
 
 
  .profile-container {
