@@ -10,6 +10,23 @@
 
 <body>
 
+<div class="content-detail">
+
+        <button 
+            id="favorite-button-S002" 
+            data-content-id="S002" 
+            onclick="toggleFavorite(this)"
+            class="favorite-button"
+        >
+            <span id="heart-icon-S002" class="heart-icon">🤍</span> Adicionar aos Favoritos
+        </button>
+        
+       
+
+    </div>
+
+
+
 <header>
     <nav class="navbar">
         <button class="hamburger" id="hamburger-menu" aria-label="Abrir Menu Lateral">
@@ -28,6 +45,7 @@
 
     <a href="#mensagens" class="nav-link">Inicio</a>
     <a href="#config" class="nav-link">🔍 Pesquisar  </a>
+    <a href="/favoritos.html" class="nav-link">Favoritos</a>
     <a href="#config" class="nav-link">Series</a>
     <a href="#mensagens" class="nav-link">Filmes</a>
     <a href="#mensagens" class="nav-link">Animes</a>
@@ -55,8 +73,7 @@
 
 
 </div>
-
-
+ 
 
 
         <h1 class="titulo2">Você também pode gostar</h1>
@@ -303,6 +320,11 @@
         }
     </style>
 
+
+
+
+
+
 <script>
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -352,7 +374,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+
+
+
 </script>
+
+ <script src="../data.js"></script>
+    <script src="../favorite_logic.js"></script>
 
 
 </body>
