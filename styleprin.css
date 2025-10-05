@@ -188,14 +188,15 @@ li {
 }
 
 .carrossel {
+  position: relative;
   display: flex;
-  gap: 15px;
+  gap: 5px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
   border-radius: 15px;
   scroll-snap-type: x mandatory; /* deixa travado no slide */
-  margin-left: 20px;
+  
 }
 
 .carrossel::-webkit-scrollbar {
@@ -211,6 +212,19 @@ li {
   top: 15px;
   font-size: 30px;
 }
+.item {
+  flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
+  scroll-snap-align: start;
+  height: 400px;
+}
+
+.item img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+ 
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
 
 
 
@@ -221,7 +235,7 @@ li {
   position: relative;
   top: -90px;
   display: flex;
-  gap: 15px;
+  gap: 5px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
@@ -240,15 +254,6 @@ li {
   left: 25px;
   top: -78px;
   font-size: 30px;
-}
-.link-mais1{
- color: rgb(153, 150, 150);
-  position: relative;
- right: -290px;
-  top: -135px;
-  font-size: 30px;
-
-
 }
 .item2 {
   flex: 0 0 50%;   /* ocupa metade da tela → 2 por vez */
@@ -270,7 +275,7 @@ li {
   position: relative;
   top: -175px;
   display: flex;
-  gap: 15px;
+  gap: 5px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
@@ -303,7 +308,7 @@ li {
   position: relative;
   top: -265px;
   display: flex;
-  gap: 15px;
+  gap: 5px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
@@ -327,7 +332,7 @@ li {
   position: relative;
   top: -345px;
   display: flex;
-  gap: 15px;
+  gap: 5px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
@@ -352,7 +357,7 @@ font-family: Arial, Helvetica, sans-serif;
   position: relative;
   top: -425px;
   display: flex;
-  gap: 15px;
+  gap: 5px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
@@ -395,7 +400,7 @@ font-family: Arial, Helvetica, sans-serif;
         .profile-pic-link {
             display: block;
             position: relative;
-            top: -2860px;
+            top: -3860px;
             right: -150px;
             width: 70px;
             height: 70px;
