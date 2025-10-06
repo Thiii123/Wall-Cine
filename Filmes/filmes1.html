@@ -1,35 +1,121 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wall Cine</title>
-    <link rel="stylesheet" href="style3.css">
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>᭙all 𝒞ine</title>
+    <link rel="stylesheet" href="../favorite.css">
 
-  <div class="player-container">
-        <iframe src="https://superflixapi.shop/filme/tt0068646" allowfullscreen></iframe>
-    
-    
-<style>* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-  body{  
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <button class="hamburger" id="hamburger-menu" aria-label="Abrir Menu Lateral">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <a href="#" class="logo">᭙all 𝒞ine</a>
+        
+        </nav>
+</header>
+
+<nav class="side-menu" id="side-menu">
+    <a href="/perfil.html" class="nav-link">Meu Perfil</a>
+
+    <a href="#mensagens" class="nav-link">Inicio</a>
+    <a href="#config" class="nav-link">🔍 Pesquisar  </a>
+    <a href="/favoritos.html" class="nav-link">Favoritos</a>
+    <a href="#config" class="nav-link">Series</a>
+    <a href="#mensagens" class="nav-link">Filmes</a>
+    <a href="#mensagens" class="nav-link">Animes</a>
+    <a href="#mensagens" class="nav-link">Doramas</a>
+    <a href="#sair" class="nav-link">Sair</a>
+</nav>
+
+<div id="menu-overlay" class="menu-overlay" onclick="closeMenu()"></div>
+
+
+
+
+    <div class="player-container">
+        <iframe src="https://superflixapi.shop/serie/tt0068646" allowfullscreen></iframe>
+
+
+
+
+<div class="discriçao">
+<h1>Kaiju N 8</h1>
+
+
+<div class="content-detail">
+
+        <button 
+            id="favorite-button-S002" 
+            data-content-id="S002" 
+            onclick="toggleFavorite(this)"
+            class="favorite-button"
+        >
+            <span id="heart-icon-S002" class="heart-icon">🤍</span> 
+        </button>
+        
+       
+
+    </div>
+
+<p class="discriçao2"><span class="indicaçao">A16</span> <span class="textleg"> * Leg | Dub </span> </p>
+<br>
+<h3>3 de julho de 2020</h3>
+<p class="text">Em um mundo assolado por criaturas conhecidas como Kaiju, Kafka Hibino aspirava se alistar nas Forças de Defesa com sua amiga de infância, Mina Ashiro. Enquanto trabalhava na limpeza após as batalhas de Kaiju, Kafka conhece Reno Ichikawa. A determinação de Reno em ingressar nas Forças de Defesa desperta a promessa de Kafka de se juntar a Mina e proteger a humanidade.</p>
+
+
+</div>
+ 
+
+
+        <h1 class="titulo2">Você também pode gostar</h1>
+
+        <div class="carrossel2">
+            <div class="item2"><img src="/assets/onepiece.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/demons.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/juju.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/solo2.jpg" alt=""></div>
+            <div class="item2"><img src="/assets/titas.jpg" alt=""></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #111;
+            background-color: black;
             color: white;
             margin: 0;
             padding: 0;
-            
+            height: 190vh;
+            box-sizing: border-box;
+
         }
-      
-        .player-container {
-            width: 90%;
+
+
+   .player-container {
+            width: 100%;
             max-width: 900px;
             margin: 20px auto;
         }
@@ -37,17 +123,278 @@
             width: 100%;
             height: 500px;
             border: none;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+           
         }
         @media (max-width: 600px) {
             iframe {
                 height: 300px;
             }
-        }</style>
+        }
+   /* Estilo Básico do Header */
+.navbar {
+    display: flex;
+    /* Alinha o Hambúrguer (esquerda) e o Logo */
+    align-items: center; 
+   
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    /* Mantenha o logo afastado do hambúrguer */
+    margin-left: 170px; 
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+
+}
+
+/* --- Estilo e Posição do Hambúrguer --- */
+.hamburger {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    padding: 10px;
+    /* Move o ícone para a esquerda (se o header for Flex) */
+    order: -1; 
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Estilo do Menu Lateral (Side-Drawer) --- */
+.side-menu {
+    position: fixed; /* Fixa o menu na tela */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    height: 100%; /* Ocupa toda a altura da tela */
+    width: 250px; /* Largura do menu aberto */
+    background-color: black;
+    opacity: 0.86;
+    padding-top: 60px; /* Espaço para o topo da tela */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    
+    /* CRÍTICO: ESCONDE o menu fora da tela */
+    transform: translateX(-100%); 
+    transition: transform 0.3s ease-in-out;
+    
+    /* Estilos de link */
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.2s;
+}
+
+.side-menu a:hover {
+    background-color: #444;
+}
+
+/* CLASSE JS: Ativada pelo JavaScript para MOVER o menu para dentro */
+.side-menu.active {
+    /* Move o menu 100% para dentro (da esquerda para a direita) */
+    transform: translateX(0); 
+}
+
+/* --- Estilo do Overlay (Fundo Escurecido) --- */
+.menu-overlay {
+    /* Esconde o overlay por padrão */
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999; /* Fica entre o menu e o conteúdo */
+    cursor: pointer;
+}
+
+/* CLASSE JS: Ativada pelo JavaScript para MOSTRAR o overlay */
+.menu-overlay.active {
+    display: block; 
+}
+.discriçao{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border: 1px solid #111;
+
+}
+.discriçao2{
+      position: relative;
+    left: -120px;
+    top: 20px;
 
 
+}
+.discriçao h1{
+    position: relative;
+    margin-top: 10px;
+    left: -120px;
+    
+    
+}
+.discriçao h3{
+    position: relative;
+    margin-top: 15px;
+    left: -100px;
+    
+    
+}
+
+.indicaçao{
+  
+    border: 2px solid #fff;
+    width: 40px;
+    font-weight: bold;
+    background-color: red;
+}
+.textleg{
+    color: rgba(255, 255, 255, 0.46) ;
+
+}
+.text{
+    width: 350px;
+    height: 500px;
+    margin-top: 30px;
+    margin-left: 10px;
+    text-align: left;
+
+}
+
+
+        .carrossel2 {
+            position: relative;
+            top: 40px;
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px;
+            border-radius: 15px;
+            scroll-snap-type: x mandatory;
+            /* deixa travado no slide */
+        }
+
+        .carrossel2::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .titulo2 {
+            /*titulo carrossel "Destaques"*/
+            color: white;
+            position: relative;
+            left: -25px;
+            top: 25px;
+            font-size: 25px;
+        }
+
+        .item2 {
+            flex: 0 0 50%;
+            /* ocupa metade da tela → 2 por vez */
+            scroll-snap-align: start;
+            height: 300px;
+            width: 80%;
+        }
+
+        .item2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+
+
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger-menu');
+    const sideMenu = document.getElementById('side-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+
+    // Função para abrir o menu
+    function openMenu() {
+        sideMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        // Opcional: Impede o scroll no corpo quando o menu está aberto
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    // Função para fechar o menu
+    function closeMenu() {
+        sideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        // Opcional: Restaura o scroll do corpo
+        document.body.style.overflow = 'auto'; 
+    }
+
+    // 1. Abrir/Fechar ao clicar no ícone hambúrguer
+    hamburger.addEventListener('click', () => {
+        // Verifica se o menu está fechado para decidir se abre ou fecha
+        if (!sideMenu.classList.contains('active')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    });
+    
+    // 2. Fechar ao clicar no overlay de fundo
+    menuOverlay.addEventListener('click', closeMenu);
+
+    // 3. Fechar ao clicar em um link do menu (opcional)
+    document.querySelectorAll('.side-menu .nav-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // 4. Fechar ao pressionar a tecla ESC
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && sideMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+});
+
+
+
+
+
+</script>
+
+ <script src="../data.js"></script>
+    <script src="../favorite_logic.js"></script>
 
 
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+

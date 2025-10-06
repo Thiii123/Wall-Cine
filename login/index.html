@@ -3,58 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro com Firestore e Recuperação de Senha</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    input { display: block; margin-bottom: 5px; padding: 8px; width: 250px; }
-    .error { color: red; font-size: 14px; margin-bottom: 10px; }
-    .success { color: green; font-size: 14px; margin-bottom: 10px; }
-    button { padding: 10px 15px; margin-bottom: 20px; cursor: pointer; }
-    .hidden { display: none; }
-  </style>
+  <title>js</title>
 </head>
 <body>
-  <h1>Cadastro</h1>
-  <input type="text" id="nome" placeholder="Digite seu nome">
-  <div id="nomeError" class="error"></div>
 
-  <input type="email" id="email" placeholder="Digite seu email">
-  <div id="emailError" class="error"></div>
 
-  <input type="password" id="senha" placeholder="Digite sua senha">
-  <div id="senhaError" class="error"></div>
+  <a class="botao" href="">click aqui</a>
 
-  <button onclick="cadastrar()">Cadastrar</button>
-  <div id="cadastroMsg"></div>
+<style>
 
-  <h1>Login</h1>
-  <div id="loginDiv">
-    <input type="email" id="emailLogin" placeholder="Digite seu email">
-    <div id="emailLoginError" class="error"></div>
+.botao{
+  position: absolute;
+  display: flex;
+  text-decoration: none;
 
-    <input type="password" id="senhaLogin" placeholder="Digite sua senha">
-    <div id="senhaLoginError" class="error"></div>
+  border: 1px solid #111;
+  padding: 20px 20px;
+  border-radius: 20px;
+}
 
-    <button onclick="login()">Login</button>
-    <div id="loginMsg"></div>
+</style>
 
-    <p><a href="#" onclick="mostrarRecuperacao()">Esqueci minha senha</a></p>
-  </div>
+<script>
 
-  <!-- 🔹 Form de recuperação escondido -->
-  <div id="recuperarSenhaDiv" class="hidden">
-    <h3>Recuperar Senha</h3>
-    <input type="email" id="emailRecuperar" placeholder="Digite seu email">
-    <button onclick="recuperarSenha()">Enviar redefinição</button>
-    <button onclick="voltarLogin()">Voltar para Login</button>
-    <div id="recuperarMsg"></div>
-  </div>
+let botaoativo = document.querySelector(".botao")
 
-<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+botaoativo.addEventListener("click", ativarbotao)
 
-  <script src="script.js"></script>
+function ativarbotao() {
+  alert("botao ativo")
+}
+
+
+
+
+</script>
+  
 </body>
 </html>
-

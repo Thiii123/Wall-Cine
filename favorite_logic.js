@@ -7,6 +7,7 @@ function getFavorites() {
     return saved ? JSON.parse(saved) : [];
 }
 
+
 // Função utilitária: Salva a lista de IDs
 function saveFavorites(favoritesArray) {
     localStorage.setItem(FAVORITES_KEY, JSON.stringify(favoritesArray));
