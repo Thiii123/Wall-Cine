@@ -23,9 +23,9 @@ const ALL_CONTENT = [
     { 
         id: 'S004', 
         type: 'Série', 
-        title: "Stranger Things", 
-        url: "serie_stranger.html",
-        image_path: "images/stranger.jpg" 
+        title: "Contagem Regressiva", 
+        url: "Series/series1.html",
+        image_path: "assets/contagem.jpg" 
     },
     // Adicione todos os seus filmes/séries aqui com IDs únicos
 ];
