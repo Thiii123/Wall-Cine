@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- ESSENCIAL: Garante que o navegador móvel use a largura real do dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H1 Fixo em Qualquer Dispositivo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /*
+        --------------------------------------------------------
+        1. Configuração do Contexto (Body Ocupa a Tela Toda)
+        --------------------------------------------------------
+        */
+        body {
+            /* Define a altura mínima do corpo como 100% da altura do viewport (tela visível) */
+            min-height: 100vh;
+            background-color: #1f2937; /* Fundo cinza escuro */
+            margin: 0; /* Remove margens padrão que podem causar desalinhamento */
+            padding: 0; /* Remove preenchimento padrão */
+        }
+
+        /*
+        --------------------------------------------------------
+        2. A Técnica de Centralização Absoluta
+        --------------------------------------------------------
+        */
+        .fixed-h1 {
+            /* Tira o elemento do fluxo normal */
+            position: absolute;
+            
+            /* Move o canto superior esquerdo para o centro da tela (50% do topo, 50% da esquerda) */
+            top: 20%;
+            left: 50%;
+            
+            /* Puxa o elemento para trás 50% do seu próprio tamanho, centralizando-o perfeitamente */
+            transform: translate(-50%, -50%);
+            
+            /* Garante que o h1 esteja na frente de outros elementos */
+            z-index: 10;
+        }
+
+        /*
+        --------------------------------------------------------
+        3. Estilização para Mobile
+        --------------------------------------------------------
+        */
+        @media (max-width: 640px) {
+            .fixed-h1 {
+                /* Aumenta a margem superior em telas pequenas para evitar a barra de status */
+                padding-top: 20px; 
+                /* O H1 pode ser ligeiramente movido para cima se necessário, mas o 50% já funciona bem */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+    O H1 usa a classe 'fixed-h1' para aplicar o posicionamento absoluto e centralização.
+    Ele ficará sempre no meio da tela, independentemente do dispositivo ou da rolagem (se o body não rolar).
+    -->
+    <h1 class="fixed-h1 text-4xl sm:text-5xl font-extrabold text-blue-400 bg-gray-800 p-4 rounded-xl shadow-2xl transition duration-500 hover:scale-[1.05]">
+        <span class="block">POSIÇÃO</span>
+        <span class="block text-center text-white">FIXA E ESTÁVEL</span>
+    </h1>
+
+    <!-- Conteúdo de teste para preencher a página -->
+    <div class="p-8 text-center text-gray-400">
+        <p class="mt-[100vh]">Se houver rolagem, este é o conteúdo abaixo da tela.</p>
+        <p class="mt-4">O título sempre tentará ficar no centro exato da janela visível.</p>
+    </div>
+
+</body>
+</html>

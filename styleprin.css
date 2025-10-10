@@ -7,6 +7,7 @@ body {
   min-height: 400vh;
   overflow-y: auto;
   zoom: 85%;
+  box-sizing: border-box;
   
 
 
