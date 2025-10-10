@@ -14,9 +14,9 @@ a{
 
 
 .favorite-button {
-    position: relative;
+    position: absolute;
     top: 17px;
-    right: -220px;
+    right: -90px;
     background: none;
 border: none;
   
