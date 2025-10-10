@@ -68,7 +68,7 @@
        
 
     </div>
-
+<div>
 <p class="discriçao2"><span class="indicaçao">A18</span> <span class="textleg"> * Leg | Dub </span> </p>
 <br>
 <h3>25 de Junho de 2025</h3>
@@ -76,7 +76,7 @@
 
 
 </div>
- 
+ </div>
 <div>
 
         <h1 class="titulo2">Você também pode gostar</h1>
@@ -117,20 +117,34 @@
 
 
    .player-container {
+    position: absolute;
+    top: 50px;
             width: 100%;
             max-width: 900px;
             margin: 20px auto;
         }
         iframe {
             width: 100%;
-            height: 500px;
+            height: 700px;
             border: none;
            
         }
         @media (max-width: 600px) {
             iframe {
-                height: 300px;
+                height: 365px;
             }
+          
+        }
+          @media (min-width: 620px) and (max-width: 920px) {
+body{
+    margin: 0;
+}
+
+            iframe {
+                height: 365px;
+                width: 100%;
+            }
+
         }
    /* Estilo Básico do Header */
 .navbar {
@@ -233,7 +247,7 @@
 }
 .discriçao{
     position: absolute;
-    top: 400px;
+    top: 370px;
     width: 100%;
     height: 350px;
     border: 1px solid #111;
@@ -241,7 +255,8 @@
 }
 .discriçao2{
       position: absolute;
-    top: 70px;
+    top: 150px;
+    
     left: 5px;
 
 
@@ -249,6 +264,7 @@
 .discriçao h1{
     font-size: 30px;
     position: absolute;
+    top: 70px;
     margin-top: 20px;
     
     
@@ -256,7 +272,8 @@
 }
 .discriçao h3{
     position: absolute;
-    top: 90px;
+    margin-top: 10px;
+    top: 165px;
     
     
 }
@@ -275,8 +292,10 @@
 }
 .text{
     position: absolute;
-    top: 130px;
-    width: 350px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 180px;
+    width: 100%;
     height: 500px;
     margin-top: 30px;
     margin-left: 10px;
@@ -287,7 +306,7 @@
 
         .carrossel2 {
             position: relative;
-            top: 320px;
+            top: 440px;
             display: flex;
             gap: 15px;
             overflow-x: auto;
@@ -306,7 +325,7 @@
             /*titulo carrossel "Destaques"*/
             color: white;
             position: absolute;
-            top: 670px;
+            top: 750px;
             font-size: 25px;
         }
 
@@ -325,6 +344,7 @@
         
             border-radius: 25px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            
         }
     </style>
 

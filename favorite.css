@@ -16,7 +16,7 @@ a{
 .favorite-button {
     position: absolute;
     top: 17px;
-    right: -90px;
+    right: -140px;
     background: none;
 border: none;
   
@@ -26,7 +26,7 @@ border: none;
 }
 
 .heart-icon {
-    font-size: 30px;
+    font-size: 40px;
     margin-right: 5px;
 }
 
