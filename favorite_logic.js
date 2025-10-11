@@ -43,10 +43,10 @@ function updateFavoriteButton(contentId) {
     if (iconElement && buttonElement) {
         if (isFavorite) {
             iconElement.textContent = '❤️';
-            buttonElement.innerHTML = `<span class="heart-icon">❤️</span> Remova dos Favoritos`;
+            buttonElement.innerHTML = `<span class="heart-icon">❤️</span> `;//Remova dos Favoritos
         } else {
             iconElement.textContent = '🤍';
-            buttonElement.innerHTML = `<span class="heart-icon">🤍</span> Adicionar aos Favoritos`;
+            buttonElement.innerHTML = `<span class="heart-icon">🤍</span> `; //Adicionar aos Favoritos
         }
     }
 }

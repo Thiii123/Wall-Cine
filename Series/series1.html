@@ -6,11 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>᭙all 𝒞ine</title>
     <link rel="stylesheet" href="../favorite.css">
-
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+ <div id="loader-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-900 bg-opacity-95 transition-opacity duration-500">
+        
+        <!-- O Spinner (anel animado) -->
+        <div class="loader-ring mb-4"></div>
+        
+        <!-- Mensagem de status -->
+        <p class="text-xl font-semibold text-gray-200 animate-pulse">
+            Carregando Conteúdo...
+        </p>
+
+    </div>
+
+
+
+
+    
 <header>
+
+
+
+
     <nav class="navbar">
         <button class="hamburger" id="hamburger-menu" aria-label="Abrir Menu Lateral">
             <span class="bar"></span>
@@ -114,6 +134,35 @@
             box-sizing: border-box;
 
         }
+
+    /* Define a animação de rotação para o spinner */
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Estilo do anel (ring) que será animado */
+        .loader-ring {
+            /* Tamanho fixo, mas centralizado */
+            width: 80px;
+            height: 80px;
+            /* Borda sólida, a cor de baixo é mais fraca (30% de opacidade) */
+            border: 8px solid rgba(255, 255, 255, 0.3); 
+            /* A cor do topo é forte para dar o efeito de movimento */
+            border-top-color: #3b82f6; /* Azul vibrante */
+            border-radius: 50%;
+            /* Aplica a animação: 1 segundo, linear, infinito */
+            animation: spin 1s linear infinite;
+        }
+
+
+
+
+
+
+
+
 
 
    .player-container {
@@ -295,7 +344,7 @@ body{
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     top: 180px;
-    width: 100%;
+    width: 90%;
     height: 500px;
     margin-top: 30px;
     margin-left: 10px;
@@ -401,6 +450,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+            const loaderOverlay = document.getElementById('loader-overlay');
+            const mainContent = document.getElementById('main-content');
+            
+            // Simula um tempo de carregamento de 3 segundos.
+            // Em um projeto real, substitua este setTimeout pela sua lógica de carregamento de dados (e.g., uma chamada de API).
+            const LOAD_TIME_MS = 3000; 
+
+            setTimeout(() => {
+                // 1. Esconde o overlay do loader, aplicando uma transição de opacidade suave.
+                loaderOverlay.style.opacity = '0';
+
+                // 2. Após a transição (500ms), esconde totalmente o overlay e mostra o conteúdo principal.
+                setTimeout(() => {
+                    loaderOverlay.classList.add('hidden');
+                    mainContent.classList.remove('hidden');
+                    
+                    // (Opcional) Adiciona uma animação para o conteúdo principal aparecer suavemente
+                    mainContent.style.opacity = '1';
+                    mainContent.style.transition = 'opacity 0.5s ease-in-out';
+                }, 500); 
+
+            }, LOAD_TIME_MS);
+        });
+
+
+
+
 
 
 

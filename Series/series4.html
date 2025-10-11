@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Carregamento</title>
+    <!-- Carrega o Tailwind CSS para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define a animação de rotação para o spinner */
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Estilo do anel (ring) que será animado */
+        .loader-ring {
+            /* Tamanho fixo, mas centralizado */
+            width: 80px;
+            height: 80px;
+            /* Borda sólida, a cor de baixo é mais fraca (30% de opacidade) */
+            border: 8px solid rgba(255, 255, 255, 0.3); 
+            /* A cor do topo é forte para dar o efeito de movimento */
+            border-top-color: #3b82f6; /* Azul vibrante */
+            border-radius: 50%;
+            /* Aplica a animação: 1 segundo, linear, infinito */
+            animation: spin 1s linear infinite;
+        }
+
+        /* Estilo para garantir que o body ocupe a tela inteira */
+        body {
+            min-height: 100vh;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================================================= -->
+    <!-- 1. CAMADA DE CARREGAMENTO (LOADER OVERLAY) -->
+    <!-- Essa div fica fixa e cobre a tela inteira com z-index alto -->
+    <!-- ======================================================= -->
+    <div id="loader-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-900 bg-opacity-95 transition-opacity duration-500">
+        
+        <!-- O Spinner (anel animado) -->
+        <div class="loader-ring mb-4"></div>
+        
+        <!-- Mensagem de status -->
+        <p class="text-xl font-semibold text-gray-200 animate-pulse">
+            Carregando Conteúdo...
+        </p>
+
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- 2. CONTEÚDO PRINCIPAL DO SITE -->
+    <!-- Inicialmente escondido (hidden) e só aparece após o loader -->
+    <!-- ======================================================= -->
+    
+
+
+
+
+
+
+    
+    <!-- ======================================================= -->
+    <!-- 3. LÓGICA JAVASCRIPT -->
+    <!-- Simula o tempo de carregamento e esconde o loader -->
+    <!-- ======================================================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loaderOverlay = document.getElementById('loader-overlay');
+            const mainContent = document.getElementById('main-content');
+            
+            // Simula um tempo de carregamento de 3 segundos.
+            // Em um projeto real, substitua este setTimeout pela sua lógica de carregamento de dados (e.g., uma chamada de API).
+            const LOAD_TIME_MS = 3000; 
+
+            setTimeout(() => {
+                // 1. Esconde o overlay do loader, aplicando uma transição de opacidade suave.
+                loaderOverlay.style.opacity = '0';
+
+                // 2. Após a transição (500ms), esconde totalmente o overlay e mostra o conteúdo principal.
+                setTimeout(() => {
+                    loaderOverlay.classList.add('hidden');
+                    mainContent.classList.remove('hidden');
+                    
+                    // (Opcional) Adiciona uma animação para o conteúdo principal aparecer suavemente
+                    mainContent.style.opacity = '1';
+                    mainContent.style.transition = 'opacity 0.5s ease-in-out';
+                }, 500); 
+
+            }, LOAD_TIME_MS);
+        });
+    </script>
+
+</body>
+</html>
